@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 int count_water(std::vector<int> l, int p, int &water)
 {
@@ -37,22 +36,22 @@ int main()
 	int test_case;
 	std::cin >> test_case;
 
-	for (int i = 0; i < test_case; i++)
+	for (int t = 0; t < test_case; t++)
 	{
 		int size;
 		std::cin >> size;
 		std::vector<int> l;
 		l.reserve(size);
 
-		for (int j = 0; j < size; ++j)
+		for (int j = 0; j < size; j++)
 		{
 			int input = 0;
 			std::cin >> input;
 			l.push_back(input);
 		}
 
-		// logic 
-		
+		// logic
+
 		int water = 0;
 		int j = 0;
 		while (j < size - 1)
