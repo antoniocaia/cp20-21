@@ -3,7 +3,13 @@
 [Kadane's Algorithm](code/kadane.cpp)  
 [Missing number in array](code/missingnumber.cpp)  
 [Trapping rain water](code/trappingrainwater.cpp)  
-[Sliding window maximum](code/submaxOpt.cpp) |  [Alternative Solution](code/submax.cpp)  
+[Sliding window maximum](code/submax.cpp)  
 
 # Lecture 2
+[Next larger element](code/nextlarger.cc)  
 
+
+
+# Alternative implementation
+
+[Sliding window maximum](code/submaxOpt.cpp) 
