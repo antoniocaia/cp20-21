@@ -7,6 +7,8 @@
 
 # Lecture 2
 [Next larger element](code/nextlarger.cc)  
+[Towers](code/towers.cpp)  
+
 
 
 
