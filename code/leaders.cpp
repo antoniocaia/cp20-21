@@ -1,22 +1,30 @@
 #include <iostream>
 #include <vector>
 
-void find_leader(std::vector<int> l)
+/*
+To find the leaders a good approach is to check the vector from rigth to left, keeping track of the max value: 
+doing so, everytime a new max is found, we are sure that all the elements to its right are smaller than it,
+and this satisfy the requisite to be a leader.
+
+O(N)
+*/
+
+void find_leader(std::vector<int> v)
 {
-	int n = l.size();
+	int n = v.size();
 	std::vector<int> lead;
 	lead.reserve(n);
 
-	int max = l[n - 1];
-	lead.push_back(l[n - 1]);
+	int max = v[n - 1];
+	lead.push_back(v[n - 1]);
 	int c = 1;
 
 	for (int i = n - 2; i >= 0; i--)
 	{
-		if (l[i] >= max)
+		if (v[i] >= max)
 		{
-			lead.push_back(l[i]);
-			max = l[i];
+			lead.push_back(v[i]);
+			max = v[i];
 			c++;
 		}
 	}
@@ -36,17 +44,17 @@ int main()
 	{
 		int size;
 		std::cin >> size;
-		std::vector<int> l;
-		l.reserve(size);
+		std::vector<int> v;
+		v.reserve(size);
 
 		for (int i = 0; i < size; i++)
 		{
 			int input = 0;
 			std::cin >> input;
-			l.push_back(input);
+			v.push_back(input);
 		}
 
-		find_leader(l);
+		find_leader(v);
 		std::cout << "\n";
 	}
 }
