@@ -7,7 +7,8 @@ This problem is solved using a stack.
 Scanning the vector from right to left, we put in the stack the first number. 
 From now on, before putting a new element in the stack, we remove all the element smaller than the new one. 
 The reason behind this action is that the elements in the stack became "useless" as soon a new value bigger than them is found:
-the new element will be for sure the next larger value for every next elements smaller than it.
+- the new element will be for sure the next larger value for every next elements smaller than it.
+- if a highr element is going to be found, we can tell for sure that there isn't any element bigger than it.
 
 O(N)
 */ 
