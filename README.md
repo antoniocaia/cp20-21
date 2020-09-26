@@ -12,11 +12,12 @@
 
 # Lecture 3
 [Inversion count]() // MISSING  
-[The Monkey and the Oiled Bamboo](code/monkey.cpp) // Solution is O(N) not log(N)
+[The Monkey and the Oiled Bamboo](code/monkey.cpp) 
 
 
 
 
 # Alternative implementation
 
-[Sliding window maximum](code/submaxOpt.cpp) 
+[Sliding window maximum](code/submaxOpt.cpp) (using sliding algorithm saw in class)  
+[The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (using binary search)
