@@ -8,6 +8,11 @@
 # Lecture 2
 [Next larger element](code/nextlarger.cc)  
 [Towers](code/towers.cpp)  
+[Finding Team Member]() // MISSING  
+
+# Lecture 3
+[Inversion count]() // MISSING  
+[The Monkey and the Oiled Bamboo](code/monkey.cpp) // Solution is O(N) not log(N)
 
 
 
