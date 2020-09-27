@@ -5,7 +5,7 @@
 Binary search for the value
 */
 
-bool tryk(int k, std::vector<int> v)
+bool test_k(int k, std::vector<int> v)
 {
 
 	if (v[0] > k)
@@ -37,7 +37,7 @@ int binary(std::vector<int> v)
 	while (s <= e)
 	{
 		int m = s + (e - s) / 2;
-		if (tryk(m, v))
+		if (test_k(m, v))
 		{
 			top = m;
 			e = m - 1;

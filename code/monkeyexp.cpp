@@ -33,7 +33,7 @@ int binary(std::vector<int> v, int s, int e)
 	while (s <= e)
 	{
 		int m = s + (e - s) / 2;
-		if (tryk(m, v))
+		if (test_k(m, v))
 		{
 			top = m;
 			e = m - 1;
