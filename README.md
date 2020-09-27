@@ -8,16 +8,14 @@
 # Lecture 2
 [Next larger element](code/nextlarger.cc)  
 [Towers](code/towers.cpp)  
-[Finding Team Member]() // MISSING  
+[Finding Team Member]() MISSING  
 
 # Lecture 3
-[Inversion count]() // MISSING  
+[Inversion count]() MISSING  
 [The Monkey and the Oiled Bamboo](code/monkey.cpp) 
 
+# Alternative implementations
 
-
-
-# Alternative implementation
-
-[Sliding window maximum](code/submaxOpt.cpp) (using sliding algorithm saw in class)  
-[The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (using binary search)
+[Sliding window maximum](code/submaxOpt.cpp) (sliding algorithm seen in class)  
+[The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (binary search)  
+[The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)
