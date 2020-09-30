@@ -11,7 +11,7 @@
 [Finding Team Member]() MISSING  
 
 # Lecture 3
-[Inversion count]() MISSING  
+[Inversion count](code/inversionc.cpp)  TODO clean the code, too many long long  
 [The Monkey and the Oiled Bamboo](code/monkey.cpp) 
 
 # Alternative implementations
