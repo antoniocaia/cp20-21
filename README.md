@@ -8,11 +8,18 @@
 # Lecture 2
 [Next larger element](code/nextlarger.cc)  
 [Towers](code/towers.cpp)  
-[Finding Team Member]() MISSING  
+[Finding Team Member]()  
 
 # Lecture 3
-[Inversion count](code/inversionc.cpp)  TODO clean the code, too many long long  
+[Inversion count](code/inversionc.cpp)   
 [The Monkey and the Oiled Bamboo](code/monkey.cpp) 
+
+# Lecture 4
+[Two Types of Spells]()  
+
+# Lecture 5
+[Maximum path sum]()  
+[Frogs and Mosquitoes]()  
 
 # Alternative implementations
 
