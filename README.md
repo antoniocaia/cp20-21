@@ -8,7 +8,7 @@
 # Lecture 2
 [Next larger element](code/nextlarger.cc)  
 [Towers](code/towers.cpp)  
-[Finding Team Member]()  
+[Finding Team Member](code/findingteam.cpp)  
 
 # Lecture 3
 [Inversion count](code/inversionc.cpp)   
@@ -24,5 +24,7 @@
 # Alternative implementations
 
 [Sliding window maximum](code/submaxOpt.cpp) (sliding algorithm seen in class)  
+
 [The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (binary search)  
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)
+
