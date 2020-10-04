@@ -7,7 +7,8 @@ The main difficulty in this problem is to find bars of the same height.
 Sorting the bars by their heigth has a cost of N*log(N) (http://www.cplusplus.com/reference/algorithm/sort/), 
 but doing so make it's possible to iterate and confront the elements in the vector with only N steps.
 
-O(N*log(N)
+Time complexity: O(N*log(N))
+Space complexity: O(1)
 */
 
 int main()
@@ -32,7 +33,7 @@ int main()
 	int i = 0;
 	while (i < size)
 	{
-		int elem = 1; 						//every tower will be count at least one bar
+		int elem = 1; 						//every tower will be have at least one bar
 		int j = i + 1;
 		while (j < size && v[i] == v[j]) 	// until bars with the same height are found, we keep "stacking" them
 		{

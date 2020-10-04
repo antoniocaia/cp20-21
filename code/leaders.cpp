@@ -2,11 +2,11 @@
 #include <vector>
 
 /*
-To find the leaders a good approach is to check the vector from rigth to left, keeping track of the max value: 
-doing so, everytime a new max is found, we are sure that all the elements to its right are smaller than it,
-and this satisfy the requisite to be a leader.
+To find the leaders in an array a good approach is to check the vector from rigth to left, keeping track of the max value: 
+doing so, everytime a new max is found, we are sure that all the elements to its right are smaller than it,and this satisfy the requisite to be a leader.
 
-O(N)
+Time complexity: O(N)
+Space complexity: O(1)
 */
 
 void find_leader(std::vector<int> v)

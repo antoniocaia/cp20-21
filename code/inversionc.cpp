@@ -24,7 +24,6 @@ long long merge(std::vector<long long> &v, long long l, long long m, long long r
 			tmp[k] = v[j];
 			j++;
 
-			// if(v[j] < v[i]) then c += delta ?
 			c += m - i;
 		}
 		k++;

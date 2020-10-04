@@ -2,9 +2,11 @@
 #include <vector>
 
 /*
-Find the minum k (the bigger gap between two pole), and simulate all the jumps. If you can't complete with k, you can for sure solve it with k+1
+Find the bigger gap between two pole (a smaller value is useless), and simulate all N jumps. If you can't complete with k, you can for sure solve it with k+1.
+This statement is true because using the k=max_gap+1 it's impossible to find an equal gap that can reduce k and made it prone to fail.
 
-O(N)
+Time complexity: O(N)
+Space complexity: O(N) to store the gaps value.
 */
 
 int min_strenght(std::vector<int> v)
@@ -18,7 +20,7 @@ int min_strenght(std::vector<int> v)
 	g.push_back(v[0]);
 
 	int max_gap = v[0];
-	//Find the absolute minumum required k, and find all the gaps
+	//Find the absolute minumum required k, and calculate all the gaps
 	for (int i = 1; i < n; i++)
 	{
 		int gap = v[i] - v[i - 1];

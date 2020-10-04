@@ -3,10 +3,15 @@
 
 /*
 This solution is a small optimization of the quadratic solution that scan each sub-arrays to find the bigger value inside them.
-This solution is based on the fact that every time we slide the sub-array of one position, only one value changes. 
-This means that, when we consider a new sub-array, only one value change compared to previus sub-array. If the max value of the previus sub-array is still inside the current one,
-the only comparison needed is the max value with the new included value. In the best-case scenario, this alghoritm ha cost of O(N).
-Instead, if the max value isn't inside the new sub-array, we have to iterate the whole sub-array, with a total cost of O(N^2) for the worst case scenario.
+
+This solution is based on the fact that every time we slide the sub-array of one position, the last element is removed and replaced with a new one.
+This means that, when we consider a new sub-array, only one value changes compared to previus sub-array. 
+
+If the max value of the previus sub-array is still inside the current sub-array, the only comparison needed is the max value with the new included value.
+Instead, if the max value isn't inside the new sub-array, we have to iterate the whole sub-array.
+
+Time complexity: worst case scenario O(N^2). Best case scenario O(N).
+Space complexity: O(1)
 */
 
 void get_max(int s, int e, std::vector<int> l, int &m, int &m_i)

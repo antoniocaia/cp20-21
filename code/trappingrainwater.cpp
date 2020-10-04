@@ -2,7 +2,7 @@
 #include <vector>
 
 /*
-This solution is based on the fact that you can divide the vector containing the walls in segments, 
+This solution is based on the fact that you can divide the input vector the walls in segments, 
 where each segment has its right-most and left-most walls higher then the walls inside the segment.
 
           XX
@@ -11,16 +11,18 @@ XX    XX  XX      XX
 XX  XXXX  XXXXXX  XXXX
 0         1       2
 
-0-1 one is the first segment, 1-2 the second one.
+0-1 first segment, 1-2 second one, 2-/ is not a valid segment
 
 Count the water inside a segment is trivial: the lower between two external walls define the level of the water, 
 and subtracting from it the height of each wall give us the total ammount of water in a segment.
 
 To determinate when a segment stop, there is two possible scenario: 
-in the good one, a wall higher than the first one is found, and that stop the search right away. 
-In the bad one, tha alghoritm has to scan all the remaining vector to found higher one.
+in the "good one", a wall higher than the first one is found, and that stop the search right away. 
+In the "bad one", tha alghoritm has to scan all the remaining walls to found the higher one.
 
-In the worst case scenario (a vector sorted from higher to lower values) the complexity is O(n^2)
+Time complexity: in the worst case scenario (a vector with descending values) the complexity is O(N^2). Best case scenario is O(N).
+Space complexity: O(1)
+
 */
 
 int count_water(std::vector<int> l, int p, int &water)

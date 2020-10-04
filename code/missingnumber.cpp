@@ -5,6 +5,9 @@
 Because the numbers in the vector start from 1, the size of the vector is equals to the bigger number inside it. 
 Using Gauss sum it's possible to determinate the sum of the elements including the missing number.
 Subtracting from this value the sum of the elements in the vector, it's possible to find the missing value.
+
+Time complexity: O(N)
+Space complexity: O(1)
 */
 
 void missing_number(std::vector<int> l)

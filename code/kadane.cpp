@@ -7,7 +7,8 @@ the element that is currently checked, all the elements to its left (prefix), al
 This is helpfull because if the sum of the elements in the prefix is negative, the prefix must be excluded in the next subarray. 
 So everytime the sum of the elements became negative, you start to count from the next element, without having to back-track.
 
-O(n)
+Time complexity: O(N)
+Space complexity: O(1)
 */
 
 void kadane(std::vector<int> l)
