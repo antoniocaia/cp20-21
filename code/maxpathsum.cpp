@@ -1,3 +1,9 @@
+/*
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(Height of Tree)
+Execution Time:0.78
+*/
+
 int maxim = INT32_MIN;
 
 int myMax(Node *root)

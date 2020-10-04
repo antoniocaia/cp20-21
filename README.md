@@ -15,11 +15,11 @@
 [The Monkey and the Oiled Bamboo](code/monkey.cpp) 
 
 # Lecture 4
-[Two Types of Spells]()  
+[Two Types of Spells]()  (missing)
 
 # Lecture 5
-[Maximum path sum]()  
-[Frogs and Mosquitoes]()  
+[Maximum path sum](code/maxpathsum.cpp)  
+[Frogs and Mosquitoes](code/frogsmosquitoes.cpp)  
 
 # Alternative implementations
 
