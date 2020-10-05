@@ -5,27 +5,24 @@
 
 /*
 
+Wrong answer test 5
+
 */
 
 // Mosq
 struct mosq
 {
-	int pos;
-	int size;
+	long pos;
+	long size;
 
-	mosq(int x, int s)
+	mosq(long x, long s)
 	{
 		pos = x;
 		size = s;
 	}
 };
 
-inline bool operator<(const mosq &a, const mosq &b)
-{
-	return a.pos < b.pos;
-}
-
-bool mosq_by_pos(const mosq &a, const mosq &b)
+bool operator<(const mosq& a, const mosq& b)
 {
 	return a.pos < b.pos;
 }
@@ -34,11 +31,11 @@ bool mosq_by_pos(const mosq &a, const mosq &b)
 struct frog
 {
 	int id;
-	int pos;
-	int tongue;
+	long pos;
+	long tongue;
 	int mos_c;
 
-	frog(int i, int x, int t)
+	frog(int i, long x, long t)
 	{
 		id = i;
 		pos = x;
@@ -46,13 +43,13 @@ struct frog
 		mos_c = 0;
 	}
 
-	void update_frog(int s)
+	void update_frog(long s)
 	{
 		mos_c++;
 		tongue += s;
 	}
 
-	void frog_eat(std::set<mosq> &mosqs)
+	void frog_eat(std::set<mosq>& mosqs)
 	{
 		std::set<mosq>::iterator mit;
 		for (mit = mosqs.begin(); mit != mosqs.end(); ++mit)
@@ -79,7 +76,7 @@ bool frog_by_id(frog a, frog b)
 	return a.id < b.id;
 }
 
-// main
+// Main
 int main()
 {
 	int f_n;
@@ -92,12 +89,12 @@ int main()
 
 	for (int i = 0; i < f_n; i++)
 	{
-		int x;
-		int t;
+		long x;
+		long t;
 		std::cin >> x;
 		std::cin >> t;
 
-		struct frog f = {i, x, t};
+		struct frog f = { i, x, t };
 		frogs.push_back(f);
 	}
 
@@ -107,33 +104,26 @@ int main()
 	std::set<mosq> mosqs;
 	for (int t = 0; t < m_n; t++)
 	{
-		int x;
-		int s;
+		long x;
+		long s;
 		std::cin >> x;
 		std::cin >> s;
 
 		int i = 0;
 		while (i < f_n && !(x >= frogs[i].pos && x <= frogs[i].pos + frogs[i].tongue))
-		{
 			i++;
-		}
 
-		if (i == f_n)
-		{
-			struct mosq m = {x, s};
-			mosqs.insert(m);
-		}
-		else
-		{
-			//std::cout << "\nR: " << i << " - " << frogs[i].range[0] << "  " << frogs[i].range[1] << "\n";
-			frogs[i].update_frog(s);
-			frogs[i].frog_eat(mosqs);
-		}
+		struct mosq m = { x, s };
+		mosqs.insert(m);
+
+		//std::cout << "\nR: " << i << " - " << frogs[i].range[0] << "  " << frogs[i].range[1] << "\n";
+		frogs[i].frog_eat(mosqs);
 	}
 
 	// sort before output
 	sort(frogs.begin(), frogs.end(), frog_by_id);
-	for(int i = 0; i < f_n; i++){
+
+	for (int i = 0; i < f_n; i++) {
 		std::cout << frogs[i].mos_c << " " << frogs[i].tongue << "\n";
 	}
 }

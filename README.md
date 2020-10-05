@@ -19,7 +19,7 @@
 
 # Lecture 5
 [Maximum path sum](code/maxpathsum.cpp)  
-[Frogs and Mosquitoes](code/frogsmosquitoes.cpp)  
+<!-- [Frogs and Mosquitoes](code/frogsmosquitoes.cpp)  (Wrong answer on test 5) -->
 
 # Alternative implementations
 
@@ -27,4 +27,5 @@
 
 [The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (binary search)  
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)
+<!-- [Frogs and Mosquitoes](code/fastfrog.cpp)  (Wrong answer on test 3) (binary search) -->
 
