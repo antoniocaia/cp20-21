@@ -1,13 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <set>
-
-/*
-
-Wrong answer test 3
-
-*/
 
 // Mosq
 struct mosq
@@ -19,12 +12,12 @@ struct mosq
 	{
 		pos = x;
 		size = s;
+
+		int sx;
+		int dx;
 	}
 };
 
-bool operator<(const mosq& a, const mosq& b) {
-	return a.pos < b.pos;
-}
 
 // Frog
 struct frog
@@ -43,6 +36,7 @@ struct frog
 		pos = x;
 		tongue = t;
 		mos_c = 0;
+
 		sx = -1;
 		dx = -1;
 	}
@@ -51,24 +45,7 @@ struct frog
 		mos_c++;
 		tongue += s;
 	}
-
-	void frog_eat(std::set<mosq>& mosqs) {
-		std::set<mosq>::iterator mit;
-		for (mit = mosqs.begin(); mit != mosqs.end(); ++mit) {
-			mosq m = *mit;
-			if (m.pos >= pos && m.pos <= pos + tongue) {
-				update_frog(m.size);
-				mosqs.erase(m);
-				frog_eat(mosqs);
-				break;
-			}
-		}
-	}
 };
-
-bool frog_by_pos(frog a, frog b) {
-	return a.pos < b.pos;
-}
 
 bool frog_by_id(frog a, frog b) {
 	return a.id < b.id;
@@ -76,33 +53,87 @@ bool frog_by_id(frog a, frog b) {
 
 void insert_frog(frog f, int i, std::vector<frog>& frogs)
 {
-	if (f.pos < frogs[i].pos) {
-		if (frogs[i].sx == -1) {
-			frogs.push_back(f);
-			frogs[i].sx = frogs.size() - 1;
+	if (frogs.empty())
+		frogs.push_back(f);
+	else {
+		if (f.pos < frogs[i].pos) {
+			if (frogs[i].sx == -1) {
+				frogs.push_back(f);
+				frogs[i].sx = frogs.size() - 1;
+
+
+			}
+			else
+				insert_frog(f, frogs[i].sx, frogs);
 		}
-		else
-			insert_frog(f, frogs[i].sx, frogs);
+		else {
+			if (frogs[i].dx == -1) {
+				frogs.push_back(f);
+				frogs[i].dx = frogs.size() - 1;
+			}
+			else
+				insert_frog(f, frogs[i].dx, frogs);
+		}
+	}
+}
+
+void update_frog_tree(frog f, int i, std::vector<frog>& frogs) {
+
+	if(frogs[i].sx != -1) update_frog_tree(f, frogs[i].sx, frogs);
+	if(frogs[i].dx != -1) update_frog_tree(f, frogs[i].dx, frogs);
+
+	long range_i = frogs[i].pos + frogs[i].tongue;
+	long range_f = f.pos + f.tongue;
+
+	if(f.pos > frogs[i].pos && range_f < range_i) {
+		// delete f;
+	} else if(f.pos < frogs[i].pos && range_f > range_i) {
+		// delete frogs[i]
+	} else if(f.pos > frogs[i].pos && range_f > range_i){
+		// reduce size of f
+		f.pos = range_i + 1; // not sure about +1
+	} else if(f.pos < frogs[i].pos && range_f < range_i){
+		// reduce size of frogs[i]
+		frogs[i].pos = range_f + 1;
+	}
+}
+
+void remove_frog(int i, std::vector<frog>& frogs)
+{
+
+}
+
+
+void precedessor(int pos, int i, int& i_pr, std::vector<frog> frogs) {
+	if (i == -1) return;
+	if (pos == frogs[i].pos) {
+		i_pr = i;
+		return;
+	}
+
+	if (frogs[i].pos <= pos && (frogs[i].pos > frogs[i_pr].pos || i_pr == -1))
+		i_pr = i;
+
+	if (pos < frogs[i].pos) {
+		return precedessor(pos, frogs[i].sx, i_pr, frogs);
 	}
 	else {
-		if (frogs[i].dx == -1) {
-			frogs.push_back(f);
-			frogs[i].dx = frogs.size() - 1;
-		}
-		else
-			insert_frog(f, frogs[i].dx, frogs);
+		return precedessor(pos, frogs[i].dx, i_pr, frogs);
 	}
 }
 
-void search_near_frog(int m_pos, int i, int& bt, std::vector<frog>& frogs) {
-	if (m_pos >= frogs[i].pos && m_pos <= frogs[i].pos + frogs[i].tongue)
-		bt = i;
 
-	if (frogs[i].sx != -1) search_near_frog(m_pos, frogs[i].sx, bt, frogs);
-	if (bt == -1) {
-		if (frogs[i].dx != -1) search_near_frog(m_pos, frogs[i].dx, bt, frogs);
+// ----
+
+bool eat_mosq(int frog_ind, mosq m, std::vector<frog> frogs) {
+	if (frogs[frog_ind].pos + frogs[frog_ind].tongue > m.pos) {
+		frogs[frog_ind].update_frog(m.size);
+		update_frog_tree(frogs[frog_ind], 0, frogs);
+		return true;
 	}
+	return false;
 }
+
 
 // Main
 int main()
@@ -122,35 +153,29 @@ int main()
 		std::cin >> t;
 
 		struct frog f = { i, x, t };
-		if(frogs.size() == 0) frogs.push_back(f);
-		else insert_frog(f, 0, frogs);
+		insert_frog(f, 0, frogs);
 	}
 
-	std::set<mosq> mosqs;
+	std::vector<mosq> mosqs;
 	for (int t = 0; t < m_n; t++) {
 		long x;
 		long s;
 		std::cin >> x;
 		std::cin >> s;
+		mosq m = { x, s };
 
-		int i = -1;
-		search_near_frog(x, 0, i, frogs);
+		int frog_ind = -1;
+		precedessor(m.pos, 0, frog_ind, frogs);
 
-		if (i == -1)
-		{
-			struct mosq m = { x, s };
-			mosqs.insert(m);
+		if (frog_ind == -1 || eat_mosq(frog_ind, m, frogs)) {
+
 		}
-		else
-		{
-			//std::cout << "\nR: " << i << " - " << frogs[i].range[0] << "  " << frogs[i].range[1] << "\n";
-			frogs[i].update_frog(s);
-			frogs[i].frog_eat(mosqs);
-		}
+		//insert_mosq(m, mosqs);
+
 	}
 
 	// sort before output
-	sort(frogs.begin(), frogs.end(), frog_by_id);
+	sort(frogs.begin(), frogs.end(), [](frog a, frog b) { return a.id < b.id; });
 
 	for (int i = 0; i < f_n; i++)
 	{

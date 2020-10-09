@@ -15,11 +15,14 @@
 [The Monkey and the Oiled Bamboo](code/monkey.cpp) 
 
 # Lecture 4
-[Two Types of Spells]()  (missing)
+<!-- [Two Types of Spells]()  -->
 
 # Lecture 5
+<!-- [Frogs and Mosquitoes](code/fastfrog.cpp)  -->
+
+# Lecture 6
 [Maximum path sum](code/maxpathsum.cpp)  
-<!-- [Frogs and Mosquitoes](code/frogsmosquitoes.cpp)  (Wrong answer on test 5) -->
+<!-- [Longest k-Good segment](code/longkgood.cpp)  -->
 
 # Alternative implementations
 
@@ -27,5 +30,4 @@
 
 [The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (binary search)  
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)
-<!-- [Frogs and Mosquitoes](code/fastfrog.cpp)  (Wrong answer on test 3) (binary search) -->
 
