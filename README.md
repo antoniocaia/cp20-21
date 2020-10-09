@@ -15,7 +15,7 @@
 [The Monkey and the Oiled Bamboo](code/monkey.cpp) 
 
 # Lecture 4
-<!-- [Two Types of Spells]()  -->
+[Two Types of Spells](code/twotype.cpp)  
 
 # Lecture 5
 <!-- [Frogs and Mosquitoes](code/fastfrog.cpp)  -->
