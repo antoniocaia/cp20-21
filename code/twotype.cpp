@@ -4,6 +4,13 @@
 #include <map>
 #include <algorithm>
 
+/*
+
+
+Time complexity: 
+Space complexity: 
+*/
+
 std::map<long, long> to_dup;
 std::map<long, long> no_dup;
 int fire_in_max = 0;

@@ -22,7 +22,7 @@
 
 # Lecture 6
 [Maximum path sum](code/maxpathsum.cpp)  
-<!-- [Longest k-Good segment](code/longkgood.cpp)  -->
+[Longest k-Good segment](code/longestkgood.cpp)  
 
 # Alternative implementations
 
