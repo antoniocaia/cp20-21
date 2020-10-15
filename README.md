@@ -24,6 +24,11 @@
 [Maximum path sum](code/maxpathsum.cpp)  
 [Longest k-Good segment](code/longestkgood.cpp)  
 
+# Lecture 7
+[Ilya and Queries](code/ilya.cpp)  
+<!-- [Number of ways]()  -->
+[Little girl and maximum sum](code/littlegirl.cpp)  
+
 # Alternative implementations
 
 [Sliding window maximum](code/submaxOpt.cpp) (sliding algorithm seen in class)  
