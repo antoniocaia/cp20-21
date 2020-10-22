@@ -2,11 +2,14 @@
 #include <vector>
 
 /*
-Find the bigger gap between two pole (a smaller value is useless), and simulate all N jumps. If you can't complete with k, you can for sure solve it with k+1.
-This statement is true because using the k=max_gap+1 it's impossible to find an equal gap that can reduce k and made it prone to fail.
-
 Time complexity: O(N)
 Space complexity: O(N) to store the gaps value.
+
+We find the bigger gap k between two pole 
+because a smaller value would be useless, and simulate all N jumps. 
+If you can't complete with k, you can for sure solve it with k + 1.
+This statement is true because using the k + 1 it's impossible 
+to find an equal gap that can reduce k and made it prone to fail.
 */
 
 int min_strenght(std::vector<int> v)

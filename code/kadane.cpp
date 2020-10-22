@@ -2,13 +2,12 @@
 #include <vector>
 
 /*
-To solve this problem is usefull to think that each array is made of three parts: 
-the element that is currently checked, all the elements to its left (prefix), all the elements to its rigth (suffix).
-This is helpfull because if the sum of the elements in the prefix is negative, the prefix must be excluded in the next subarray. 
-So everytime the sum of the elements became negative, you start to count from the next element, without having to back-track.
-
 Time complexity: O(N)
 Space complexity: O(1)
+
+While iterating the input array, we refer to all the element previusly scanned as prefix.
+If the sum of the prefix is negative, the prefix must be excluded, because simply doing that we can optain a sub array whose sum is bigger. 
+Everytime the sum of the elements became negative, we start to count from the next element, without having to back-track.
 */
 
 void kadane(std::vector<int> l)

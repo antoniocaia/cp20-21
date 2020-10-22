@@ -3,16 +3,20 @@
 #include <stack>
 
 /*
+Time complexity: O(N) 
+Space complexity: O(N)
+
 This problem is solved using a stack to compare the elements to find the next larger value.
 Scanning the vector from right to left, we try to put in the stack each number. 
 Before putting a new element in the stack, we remove all the element smaller than the new one. 
-The reason behind this, is that the elements in the stack became "useless" as soon a new value bigger than them is found and added.
-Infact, the next element can be bigger or smaller than the top of the stack:
-- if it's smaller, the top is its next larger value
-- if it's bigger, I don't care what is on top until a bigger value if found
+The reason behind this, is that the elements in the stack became "useless" 
+as soon a new value bigger than them is found and added.
+Infact, when comparing a new elementi with the stack, the element can be bigger or smaller than the top of the stack:
+- if it's smaller, then the top of the stack is its next larger value.
+- if it's bigger, I don't care what is in the stack until a value bigger than the element is found
 
-Time complexity: O(N) (each element is added and removed at most one time, and every time I scan x element in the stack I remove them)
-Space complexity: O(N)
+The time complexity is O(N) because each element is added and removed at most one time, 
+and every time I scan som element in the stack I remove them.
 */
 
 void next_larger_ele(std::vector<long> v)

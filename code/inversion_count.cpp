@@ -1,6 +1,13 @@
 #include <iostream>
 #include <vector>
 
+/*
+Time complexity: O(N log N)
+Space complexity: O(N log N)
+
+This solution use a modified version of the mergesort alghorithm.
+*/
+
 long long merge(std::vector<long long> &v, long long l, long long m, long long r)
 {
 	long long c = 0;
@@ -12,15 +19,11 @@ long long merge(std::vector<long long> &v, long long l, long long m, long long r
 	tmp.reserve(v.size());
 	long long k = l;
 
-	while (i <= m - 1 && j <= r)
-	{
-		if (v[i] <= v[j])
-		{
+	while (i <= m - 1 && j <= r) {
+		if (v[i] <= v[j]) {
 			tmp[k] = v[i];
 			i++;
-		}
-		else
-		{
+		} else {
 			tmp[k] = v[j];
 			j++;
 
@@ -29,29 +32,25 @@ long long merge(std::vector<long long> &v, long long l, long long m, long long r
 		k++;
 	}
 
-	while (i <= m - 1)
-	{
+	while (i <= m - 1) {
 		tmp[k] = v[i];
 		i++;
 		k++;
 	}
 
-	while (j <= r)
-	{
+	while (j <= r) {
 		tmp[k] = v[j];
 		j++;
 		k++;
 	}
 
-	for (long long y = l; y <= r; y++)
-	{
+	for (long long y = l; y <= r; y++) {
 		v[y] = tmp[y];
 	}
 	return c;
 }
 
-long long mergesort(std::vector<long long> &v, long long l, long long r)
-{
+long long mergesort(std::vector<long long> &v, long long l, long long r) {
 	long long c = 0;
 	if (l < r)
 	{

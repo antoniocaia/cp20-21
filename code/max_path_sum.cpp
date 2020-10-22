@@ -1,7 +1,10 @@
 /*
-Expected Time Complexity: O(N)
-Expected Auxiliary Space: O(Height of Tree)
-Execution Time:0.78
+Time complexity: O(N)
+Space complexity: O(1)
+
+Using post-order visit each node return its maximum path. 
+Each parent pick only the child with the greater path, and recursively we check all the other 
+possible path. 
 */
 
 int maxim = INT32_MIN;

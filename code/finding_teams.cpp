@@ -4,11 +4,14 @@
 #include <unordered_set>
 
 /*
-In this problem all you have to do is sort the input triplets using their strenght value, and then pick them starting from the most strong one.
+Time complexity: O(N log N)
+Space complexity: O(N)
 
-Time complexity: O(N)
+Sorting the input triplets using the "strength" field takes O(N log N) time, 
+then we pick each team starting from the couple with greater strength.
+After each pick, we keep track of the people already in a team using an unordered_set
+(worst case scanario using "find()" takes linear time).
 */
-
 
 struct team
 {
@@ -33,6 +36,7 @@ int main()
 	int n;
 	std::cin >> n;
 
+	// Input
 	std::vector<team> ts;
 	int size = n * (n - 1) / 2;
 	ts.reserve(size);
@@ -48,10 +52,13 @@ int main()
 		}
 	}
 
+	// Sorting the input based on the strenght of each couple
 	sort(ts.begin(), ts.end(), comparator);
 
+	// Keep track of people already in a team
 	std::unordered_set<int> done;
-	
+
+	// Result vector
 	std::vector<int> re;
 	re.reserve(2 * n + 1);
 

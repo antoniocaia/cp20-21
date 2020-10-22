@@ -2,6 +2,11 @@
 #include <vector>
 #include <algorithm>
 
+/*
+Time complexity: O
+Space complexity: O
+
+*/
 
 int main()
 {
@@ -10,6 +15,7 @@ int main()
 
 	std::vector<int64_t> num;
 	num.reserve(n);
+	std::vector<int64_t> c(n);
 
 	for (int i = 0; i < n; i++) {
 		int64_t x;
@@ -31,31 +37,24 @@ int main()
 	// Sum of 1/3 array
 	int64_t s = tot / 3;
 
-	// Check for the first 1/3
-	int64_t part_sum = 0;
-	int i = 0;
-	while (part_sum != s) {
-		part_sum += num[i];
-		i++;
+	int64_t res = 0;
+	int64_t sum = 0;
+
+	for (int i = n - 1; i >= 0; i--) {
+		sum += num[i];
+		if (sum == s)
+			c[i] = 1;
 	}
 
-	// Check for the second 1/3
-	part_sum = 0;
-	int j = n - 1;
-	while (part_sum != s) {
-		part_sum += num[i];
-		i--;
+	for (int i = n - 2; i >= 0; i--)
+		c[i] += c[i + 1];
+
+	sum = 0;
+	for (int i = 0; i < n - 2; i++) {
+		sum += num[i];
+		if (sum == s) res += c[i + 2];
 	}
 
-	// Check for all the possible combinations
-	int res = 0;
-	part_sum = 0;
-	for(int x = i; x <= j; x++) {
-		part_sum += num[x];
-		if(part_sum == 0 || part_sum == s) {
-			res += 2;
-		}
-	}
 
 	std::cout << res;
 	return 0;

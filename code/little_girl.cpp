@@ -3,10 +3,10 @@
 #include <algorithm>
 
 /*
-
-
 Time complexity: O
 Space complexity: O
+
+
 */
 
 int main()
@@ -26,7 +26,6 @@ int main()
 	}
 
 	std::sort(num.begin(), num.end());
-
 
 	std::vector<int> q_ind(n + 1);
 
