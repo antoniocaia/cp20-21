@@ -11,11 +11,7 @@ Space complexity: O(N)
 struct fenwick_tree {
 	std::vector<int64_t> t;
 
-	fenwick_tree(std::vector<int64_t> v) {
-		t.reserve(v.size());
-		for (int64_t x : v)
-			t.push_back(x);
-	}
+	fenwick_tree(size_t n) : t(n + 1) {}
 
 	int64_t sum(int i) {
 		int64_t sum = 0;
@@ -45,8 +41,7 @@ int main()
 		int n, u;
 		std::cin >> n >> u;
 
-		std::vector<int64_t> tmp(n + 2);
-		fenwick_tree ft(tmp);
+		fenwick_tree ft(n + 1);
 
 		for (int i = 0; i < u; i++) {
 			int64_t l, r, v;

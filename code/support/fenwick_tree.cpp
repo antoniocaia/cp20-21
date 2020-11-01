@@ -4,17 +4,9 @@
 struct fenwick_tree {
 	std::vector<int64_t> t;
 
-	fenwick_tree(std::vector<int64_t> v) {
-		t.reserve(v.size());
-		for (int64_t x : v)
-			t.push_back(x);
-	}
+	fenwick_tree(size_t n) : t(n + 1) {}
 
-	void insert(int64_t x) {
-		t.push_back(x);
-	}
-
-	int64_t sum(int i) {
+	int64_t sum(int64_t i) {
 		int64_t sum = 0;
 		i++;
 		while (i > 0) {
@@ -24,7 +16,7 @@ struct fenwick_tree {
 		return sum;
 	}
 
-	void add(int i, int64_t v) {
+	void add(int64_t i, int64_t v) {
 		i++;
 		while (i < t.size()) {
 			t[i] += v;
