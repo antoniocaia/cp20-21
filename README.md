@@ -32,6 +32,12 @@
 ### Lecture 19/10/2020	
 [Update the array](code/update_array_ft.cpp)  <!-- Description -->  
 
+###  Lecture 21/10/2020
+[Nested segments FT](code/nested_segment_ft.cpp)  <!-- Description -->  
+<!-- [Pashmak and Parmida](code/pashmak_parmida.cpp)  -->  
+
+### Lecture 26/10/2020
+[Nested segments ST](code/nested_segment_st.cpp)  <!-- Description -->  
 
 ### Alternative implementations
 
