@@ -39,6 +39,9 @@
 ### Lecture 26/10/2020
 [Nested segments ST](code/nested_segment_st.cpp)  <!-- Description -->  
 
+### Lecture 02/11/2020
+<!-- [Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->  
+
 ### Alternative implementations
 
 [Sliding window maximum](code/submaxOpt.cpp) (sliding algorithm seen in class)  
