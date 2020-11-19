@@ -40,7 +40,7 @@
 [Nested segments ST](code/nested_segment_st.cpp)  <!-- Description -->  
 
 ### Lecture 02/11/2020
-<!-- [Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->  
+[Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->  
 
 ### Alternative implementations
 

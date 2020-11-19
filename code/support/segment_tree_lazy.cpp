@@ -5,19 +5,43 @@
 #include <cstring>
 #include <limits>
 
+/*
+	- Circular
+	- Lazy
+	- Min
+	- Add
+*/
 
 struct segment_tree {
 	std::vector<int64_t> t;
+	std::vector<int64_t> lazy;
 	int64_t size;
+	int64_t max = std::numeric_limits<int64_t>::max();
 
-	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1)))) { size = n; } // should be (pow(2, ceil(log2(n * 2 - 1) - 1) but there is a bug with array size 1
+	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1)))) { lazy = t; size = n; } // should be (pow(2, ceil(log2(n * 2 - 1) - 1) but there is a bug with array size 1
 
 	// Add v and update tree
 	void _add(int64_t lq, int64_t rq, int64_t v, int64_t ln, int64_t rn, int64_t i) {
+
+		if (lazy[i] != 0) {
+			t[i] += lazy[i]; 
+
+			if (rn != ln) {
+				lazy[(i + 1) * 2 - 1] += lazy[i];
+				lazy[(i + 1) * 2] += lazy[i];
+			}
+			lazy[i] = 0;
+		}
+
 		if (lq > rn || rq < ln) return;				// query range and vector segment don't overlap
 
-		if (rn == ln) { 							// query range and vector segment perfectly overlap
-			t[i] += v;
+		if (ln >= lq && rn <= rq) {					// query range and vector segment perfectly overlap
+			t[i] += v;								
+
+			if (rn != ln) { 
+				lazy[(i + 1) * 2 - 1] += v;
+				lazy[(i + 1) * 2] += v;
+			}
 			return;
 		}
 
@@ -43,7 +67,18 @@ struct segment_tree {
 
 	// Min value in a sub-array
 	int64_t _min(int64_t lq, int64_t rq, int64_t ln, int64_t rn, int64_t i) {
-		if (lq > rn || rq < ln) return std::numeric_limits<int64_t>::max();	// query range and vector segment don't overlap
+		if(lazy[i] != 0) {
+			t[i] += lazy[i];
+
+			if(ln != rn) {
+				lazy[(i + 1) * 2 - 1] += lazy[i];
+				lazy[(i + 1) * 2] += lazy[i];
+			}
+
+			lazy[i] = 0;
+		}
+
+		if (lq > rn || rq < ln) return max;									// query range and vector segment don't overlap
 		if (lq == ln && rq == rn) return t[i];								// query range and vector segment perfectly overlap
 
 		int64_t mid = (ln + rn) / 2; 										// query range and vector segment partially overlap
