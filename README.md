@@ -42,6 +42,18 @@
 ### Lecture 02/11/2020
 [Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->  
 
+### Lecture 09/11/2020
+<!--[Triplets]()  -->
+<!--[Smaller Values]()  -->
+
+### Lecture 16/11/2020
+<!--[Powerfull array]()  -->
+<!--[Tree and Queries]()  -->
+
+### Lecture 18/11/2020
+[Longest common sub](code/longest_common_sub.cpp)  
+<!--[0-1 knapsack]()  -->
+
 ### Alternative implementations
 
 [Sliding window maximum](code/submaxOpt.cpp) (sliding algorithm seen in class)  
@@ -50,4 +62,3 @@
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)
 
 [Update the array](code/update_array.cpp) (solution without FT)
-
