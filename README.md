@@ -43,7 +43,7 @@
 [Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->  
 
 ### Lecture 09/11/2020
-<!--[Triplets]()  -->
+[Triplets](code/triplets.cpp)  
 <!--[Smaller Values]()  -->
 
 ### Lecture 16/11/2020
