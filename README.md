@@ -13,7 +13,7 @@
 | 02/11/2020 | [Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->   |
 | 09/11/2020 | [Triplets](code/triplets.cpp) <br /> [Smaller Values](code/smaller_values.cpp)  |
 | 16/11/2020 | <!--[Powerfull array]()  --> <!--<br /> [Tree and Queries]()  --> |
-| 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp)  <!--<br /> [0-1 knapsack]()  --> |
+| 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) |
 
 <br />
 
