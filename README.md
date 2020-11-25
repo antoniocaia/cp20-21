@@ -11,9 +11,10 @@
 | 21/10/2020 | [Nested segments FT](code/nested_segment_ft.cpp)  <!-- Description -->  <!-- <br /> [Pashmak and Parmida](code/pashmak_parmida.cpp)  --> |
 | 26/10/2020 | [Nested segments ST](code/nested_segment_st.cpp)  <!-- Description --> |
 | 02/11/2020 | [Circular RMQ](code/circular_rmq.cpp)  <!-- Description -->   |
-| 09/11/2020 | [Triplets](code/triplets.cpp) <br /> [Smaller Values](code/smaller_values.cpp)  |
+| 09/11/2020 | [Triplets](code/triplets.cpp) <!-- Description --> <br /> [Smaller Values](code/smaller_values.cpp) <!-- Description --> |
 | 16/11/2020 | <!--[Powerfull array]()  --> <!--<br /> [Tree and Queries]()  --> |
-| 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) |
+| 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <!-- Description --> <br /> [0-1 knapsack](code/knapsack.cpp) <!-- Description --> |
+| 23/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [Minimum number of jumps](code/min_num_jumps.cpp) | 
 
 <br />
 
