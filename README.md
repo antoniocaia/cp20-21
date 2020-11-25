@@ -14,7 +14,7 @@
 | 09/11/2020 | [Triplets](code/triplets.cpp) <!-- Description --> <br /> [Smaller Values](code/smaller_values.cpp) <!-- Description --> |
 | 16/11/2020 | <!--[Powerfull array]()  --> <!--<br /> [Tree and Queries]()  --> |
 | 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <!-- Description --> <br /> [0-1 knapsack](code/knapsack.cpp) <!-- Description --> |
-| 23/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [Minimum number of jumps](code/min_num_jumps.cpp) | 
+| 23/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [Minimum number of jumps](code/min_num_jumps.cpp) <br /> [Edit distance](code/edit_distance.cpp) | 
 
 <br />
 
