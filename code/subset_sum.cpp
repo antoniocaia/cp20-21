@@ -33,9 +33,3 @@ public:
 		return m[N][sol];
 	}
 };
-
-int main() {
-	Solution s = Solution();
-	int a[] = { 3, 2 ,5, 0 };
-	std::cout << s.equalPartition(4, a);
-}
