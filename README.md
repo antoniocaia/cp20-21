@@ -16,7 +16,7 @@
 | 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <!-- Description --> <br /> |
 | 23/11/2020 | [Minimum number of jumps](code/min_num_jumps.cpp) | 
 | 30/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) <!-- Description --> |
-| 02/12/2020 | [Longest Increasing sub](code/longest_increasing_sub.cpp) |
+| 02/12/2020 | [Longest increasing sub](code/longest_increasing_sub.cpp) <br /> [Longest bitonic sub](code/longest_bitonic_sub.cpp) | 
 | 07/12/2020 | [Edit distance](code/edit_distance.cpp) |
 
 <br />
