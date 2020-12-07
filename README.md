@@ -4,7 +4,7 @@
 | 16/09/2020 | [Next larger element](code/next_larger_ele.ccp) <br /> [Towers](code/towers.cpp) <br /> [Finding Team Member](code/finding_teams.cpp) |
 | 23/09/2020 | [Inversion count](code/inversion_count.cpp)  <!-- Description --> <br /> [The Monkey and the Oiled Bamboo](code/monkey.cpp) |
 | 28/09/2020 | [Two Types of Spells](code/two_type_spells.cpp)  <!-- Description -->   |
-| 30/09/2020 | <!-- [Frogs and Mosquitoes](code/fastfrog.cpp)  --> |
+| 30/09/2020 | [Frogs and Mosquitoes](code/frogs_and_mosquitoes.cpp) |
 | 05/10/2020 | [Maximum path sum](code/max_path_sum.cpp)  <br /> [Longest k-Good segment](code/longest_kgood.cpp)  <!-- Description --> |
 | 12/10/2020 | [Ilya and Queries](code/ilya.cpp) <br /> [Number of ways](code/number_of_ways.cpp)   <!-- Description --> <br /> [Little girl and maximum sum](code/little_girl.cpp)  <!-- Description --> |
 | 19/10/2020 | [Update the array](code/update_array_ft.cpp)  <!-- Description --> |
@@ -26,3 +26,13 @@
 [The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (binary search)  
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)  
 [Update the array](code/update_array.cpp) (solution without FT)  
+
+<!-- TO DO
+
+DO MISSING EX!
+Check all descriptions!
+Check code quality!
+Do LIS with speedup
+DO LPS without LCS
+
+-->
