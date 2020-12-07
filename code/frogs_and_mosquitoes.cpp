@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <cmath>
 
 // Frog
 struct frog {
@@ -91,7 +92,7 @@ int main()
 	int f_n, m_n;
 	std::cin >> f_n >> m_n;
 
-	std::vector<frog> frogs(f_n * 2 + 2);
+	std::vector<frog> frogs(pow(2, f_n) + 1);
 
 	for (int i = 0; i < f_n; i++) {
 		int64_t x, t;
