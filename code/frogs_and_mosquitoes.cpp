@@ -39,7 +39,7 @@ struct frog {
 		tongue += s;
 	}
 
-	void feast(std::map<int64_t, int64_t> ms) {
+	void feast(std::map<int64_t, int64_t> &ms) {
 		auto it = ms.begin();
 		while (it != ms.end()) {
 			bool ok_pos = pos <= it->first;
