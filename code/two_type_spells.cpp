@@ -5,10 +5,8 @@
 #include <algorithm>
 
 /*
-
-
-Time complexity:
-Space complexity:
+Time complexity: O(N log N)
+Space complexity: O(N)
 */
 
 std::map<long, long> to_dup;					// to_dup keeps track of the spells we want to duplicate the power of (using lighting spells) 
