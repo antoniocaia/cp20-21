@@ -39,15 +39,16 @@ struct frog {
 		tongue += s;
 	}
 
+	// Check if frog can eat any of the stored mosq. The mosq are ordered in increasing position.
 	void feast(std::map<int64_t, int64_t> &ms) {
 		auto it = ms.begin();
 		while (it != ms.end()) {
-			bool ok_pos = pos <= it->first;
+			bool ok_pos = pos <= it->first;				
 			bool can_eat = pos + tongue >= it->first;
 
 			if (ok_pos) {
 				if (can_eat) {
-					update_frog(it->second);
+					update_frog(it->second);			// After eating, remove the mosq and keep searching
 					it = ms.erase(it);
 				}
 				else {
@@ -128,6 +129,7 @@ int main()
 	}
 
 	std::map<int64_t, int64_t> mosqs;
+	
 	for (int64_t t = 0; t < m_n; t++) {
 		int64_t x, s;
 		std::cin >> x >> s;
