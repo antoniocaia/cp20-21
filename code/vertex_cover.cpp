@@ -34,27 +34,6 @@ int64_t vertex_cover(int64_t current_node, int64_t parent) {
 	return vc[current_node];
 }
 
-// std::vector<std::vector<int64_t>> edges; // 2
-// std::vector<std::vector<int64_t>> vc;
-
-// int64_t vertex_c(int64_t cn, int64_t pn, bool take_cn) {
-// 	if (vc[cn][take_cn] != 0) return vc[cn][take_cn];
-
-// 	int64_t t = take_cn ? 1 : 0;
-// 	for (int i = 0; i < edges[cn].size(); i++) {
-// 		int64_t child_node = edges[cn][i];
-// 		if (child_node != pn) {
-// 			if (take_cn) {
-// 				t += std::min(vertex_c(child_node, cn, true), vertex_c(child_node, cn, false));
-// 			}
-// 			else {
-// 				t += vertex_c(child_node, cn, true);
-// 			}
-// 		}
-// 	}
-// 	return vc[cn][take_cn] = t;
-// }
-
 int main() {
 	int64_t n;
 	std::cin >> n;
@@ -65,11 +44,6 @@ int main() {
 	}
 
 	vc.reserve(n);
-	// for (int i = 0; i < n; i++) { // 2
-	// 	vc[i].reserve(2);  // 2
-	// 	vc[i].push_back(0);  // 2
-	// 	vc[i].push_back(0);  // 2
-	// }
 
 	for (int i = 0; i < n - 1; i++) {
 		int64_t v1, v2;
@@ -83,7 +57,6 @@ int main() {
 	}
 
 	std::cout << vertex_cover(0, -1);
-	//std::cout << std::min(vertex_c(0, -1, true), vertex_c(0, -1, false));  // 2
 }
 
 
