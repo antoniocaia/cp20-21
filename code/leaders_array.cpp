@@ -2,12 +2,13 @@
 #include <vector>
 
 /*
-Time complexity: O(N)
-Space complexity: O(1)
+time complexity: O(n)
+space complexity: O(1)
 
-To find the leaders in an array we check the vector from rigth to left, keeping track of the max value: 
-doing so, everytime a new max is found, we are sure that all the elements to its right are smaller than it, 
-and this satisfy the requisite to be a leader.
+To find the leaders in an array we check the vector from rigth to left, 
+keeping track of the max value: doing so, everytime a new max is found, 
+we are sure that all the elements to its right are smaller than it, and 
+this satisfy the requisite to be a leader.
 */
 
 void find_leader(std::vector<int> v)

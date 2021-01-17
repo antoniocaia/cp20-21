@@ -3,14 +3,17 @@
 #include <string>
 
 /*
-Time complexity: O(N)
-Space complexity: O(N)
+Time complexity: O(n)
+Space complexity: O(n)
 
 We scan the string comparing consecutive char.
-Every time two consecutive char are identical, we increase a counter.
-For each iteration, we update the prefix sum array pushing the current value of the counter.
+Every time two consecutive char are identical, 
+we increase a counter. For each iteration, 
+we update the prefix sum array pushing the current 
+value of the counter.
 
-To process a query, we take the two value indicated in the query and subtract them.
+To process a query, we take the two value indicated 
+in the query and subtract them.
 */
 
 int main()

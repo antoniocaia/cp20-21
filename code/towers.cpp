@@ -3,12 +3,13 @@
 #include <algorithm>
 
 /*
-Time complexity: O(N log N)
-Space complexity: O(1)
+time complexity: O(n log n)
+space complexity: O(1)
 
 The main difficulty in this problem is to find bars of the same height.
-Sorting the bars by their heigth has a cost of N log N (http://www.cplusplus.com/reference/algorithm/sort/), 
-but doing so make it's possible to iterate and confront the elements in the vector with only N steps.
+Sorting the bars by their heigth has a cost of n log n, 
+but doing so make it's possible to iterate and confront 
+the elements in the vector with only n steps.
 */
 
 int main()

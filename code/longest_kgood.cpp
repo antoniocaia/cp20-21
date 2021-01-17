@@ -3,8 +3,8 @@
 #include <map>
 
 /*
-Time complexity: O(N log X)
-Space complexity: O(X)
+Time complexity: O(n log x)
+Space complexity: O(x)
 
 We use two index to keep track of the start and end of a sub-array.
 To keep track of the number of element in a sub-array we use a map
@@ -16,7 +16,7 @@ We remove an element from the map only when the number of occurrences is zero.
 
 Because each iteration we move at least one index to the rigth,
 and the strating index can't be biggere then the ending one,
-we have a complexity of O(N log X) where O(log X) is the cost of calling find() o the map.
+we have a complexity of O(n log x) where O(log x) is the cost of calling find() on the map.
 */
 
 

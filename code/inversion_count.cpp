@@ -2,8 +2,8 @@
 #include <vector>
 
 /*
-Time complexity: O(N log N)
-Space complexity: O(N log N)
+Time complexity: O(n log n)
+Space complexity: O(n log n)
 
 This solution use a modified version of the mergesort alghorithm.
 */

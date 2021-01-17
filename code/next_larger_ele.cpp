@@ -3,8 +3,8 @@
 #include <stack>
 
 /*
-Time complexity: O(N) 
-Space complexity: O(N)
+time complexity: O(n) 
+space complexity: O(n)
 
 This problem is solved using a stack to compare the elements to find the next larger value.
 Scanning the vector from right to left, we try to put in the stack each number. 
@@ -15,7 +15,7 @@ Infact, when comparing a new elementi with the stack, the element can be bigger 
 - if it's smaller, then the top of the stack is its next larger value.
 - if it's bigger, I don't care what is in the stack until a value bigger than the element is found
 
-The time complexity is O(N) because each element is added and removed at most one time, 
+The time complexity is O(n) because each element is added and removed at most one time, 
 and every time I scan som element in the stack I remove them.
 */
 

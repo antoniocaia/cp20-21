@@ -1,18 +1,18 @@
 | Lecture | Solutions | 
 | ------- | --------- |
 | 14/09/2020 | [Leaders in an array](code/leaders_array.cpp) <br /> [Kadane's Algorithm](code/kadane.cpp) <br /> [Missing number in array](code/missing_number.cpp) <br /> [Trapping rain water](code/trapping_rainwater.cpp) <br /> [Sliding window maximum](code/sliding_window.cpp) |
-| 16/09/2020 | [Next larger element](code/next_larger_ele.ccp) <br /> [Towers](code/towers.cpp) <br /> [Finding Team Member](code/finding_teams.cpp) |
+| 16/09/2020 | [Next larger element](code/next_larger_ele.cpp) <br /> [Towers](code/towers.cpp) <br /> [Finding Team Member](code/finding_teams.cpp) |
 | 23/09/2020 | [Inversion count](code/inversion_count.cpp) <br /> [The Monkey and the Oiled Bamboo](code/monkey.cpp) |
 | 28/09/2020 | [Two Types of Spells](code/two_type_spells.cpp) |
-| 30/09/2020 | [Frogs and Mosquitoes](code/frogs_and_mosquitoes.cpp) NO |
+| 30/09/2020 | [Frogs and Mosquitoes](code/frogs_and_mosquitoes.cpp) WA test 5 |
 | 05/10/2020 | [Maximum path sum](code/max_path_sum.cpp) <br /> [Longest k-Good segment](code/longest_kgood.cpp) |
 | 12/10/2020 | [Ilya and Queries](code/ilya.cpp) <br /> [Number of ways](code/number_of_ways.cpp) <br /> [Little girl and maximum sum](code/little_girl.cpp) |
 | 19/10/2020 | [Update the array](code/update_array_ft.cpp) |
-| 21/10/2020 | [Nested segments FT](code/nested_segment_ft.cpp) <br /> [Pashmak and Parmida](code/pashmak_parmida.cpp) NO |
+| 21/10/2020 | [Nested segments FT](code/nested_segment_ft.cpp) <br /> [Pashmak and Parmida](code/pashmak_parmida.cpp) Not Done |
 | 26/10/2020 | [Nested segments ST](code/nested_segment_st.cpp) |
 | 02/11/2020 | [Circular RMQ](code/circular_rmq.cpp) |
 | 09/11/2020 | [Triplets](code/triplets.cpp) <br /> [Smaller Values](code/smaller_values.cpp) |
-| 16/11/2020 | [Powerfull array]() NO <br /> [Tree and Queries]() NO |
+| 16/11/2020 | [Powerfull array]() TLE test 6 <br /> [Tree and Queries]() Not Done |
 | 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <br /> |
 | 23/11/2020 | [Minimum number of jumps](code/min_num_jumps.cpp) | 
 | 30/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) |
@@ -35,9 +35,6 @@ Missing es:
 - pashmark (I don't get it)
 - powerfull array (TLE test 6, need opt)
 - tree and queries (TBD)
-
-- Wilbur and array
-- Alternative thinking
 
 Write all the descriptions.
 

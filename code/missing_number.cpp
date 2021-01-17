@@ -2,8 +2,8 @@
 #include <vector>
 
 /*
-Time complexity: O(N)
-Space complexity: O(1)
+time complexity: O(n)
+space complexity: O(1)
 
 Because the numbers in the vector are in the range 1..X, the size of the vector is equals to the bigger number inside it. 
 Using Gauss sum it's possible to determinate the sum of the elements including the missing number.

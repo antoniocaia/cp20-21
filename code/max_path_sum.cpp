@@ -1,10 +1,10 @@
 /*
-Time complexity: O(N)
+Time complexity: O(n)
 Space complexity: O(1)
 
 Using post-order visit each node return its maximum path. 
-Each parent pick only the child with the greater path, and recursively we check all the other 
-possible path. 
+Each parent pick only the child with the greater path,
+ and recursively we check all the other possible path. 
 */
 
 int maxim = INT32_MIN;

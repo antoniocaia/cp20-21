@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
+#include <map>
 #include <algorithm>
 #include <cmath> 
 
@@ -36,33 +36,76 @@ bool r_sort(std::pair<std::pair<int64_t, int64_t>, int64_t> a, std::pair<std::pa
 	return false;
 }
 
-void _add(std::unordered_map<int64_t, int64_t>& m, int64_t x) {
-	std::unordered_map<int64_t, int64_t>::iterator it;
-	it = m.find(x);
-	if (it != m.end()) {
-		solution += x * (2 * it->second + 1);
-		it->second += 1;
+// void _add(std::map<int64_t, int64_t>& m, int64_t x) {
+// 	std::map<int64_t, int64_t>::iterator it;
+// 	it = m.find(x);
+// 	if (it != m.end()) {
+// 		solution += x * (2 * it->second + 1);
+// 		it->second += 1;
+// 	}
+// 	else {
+// 		solution += x;
+// 		m.insert({ x, 1 });
+// 	}
+// }
+
+void _add(std::vector<int64_t>& m, int64_t x) {
+
+	if (m[x] != INT64_MAX) {
+		solution += x * (2 * m[x] + 1);
+		m[x] += 1;
 	}
 	else {
 		solution += x;
-		m.insert({ x, 1 });
+		m[x] = 1;
 	}
 }
 
-void _remove(std::unordered_map<int64_t, int64_t>& m, int64_t x) {
-	std::unordered_map<int64_t, int64_t>::iterator it;
-	it = m.find(x);
-	if (it != m.end()) {
-		it->second -= 1;
-		solution -= x * (2 * it->second + 1);
+
+// void _remove(std::map<int64_t, int64_t>& m, int64_t x) {
+// 	std::map<int64_t, int64_t>::iterator it;
+// 	it = m.find(x);
+// 	if (it != m.end()) {
+// 		it->second -= 1;
+// 		solution -= x * (2 * it->second + 1);
+// 	}
+// 	else {
+// 		solution -= x;
+// 		m.insert({ x, -1 });
+// 	}
+// }
+
+void _remove(std::vector<int64_t>& m, int64_t x) {
+	if (m[x] != INT64_MAX) {
+		m[x] -= 1;
+		solution -= x * (2 * m[x] + 1);
 	}
 	else {
 		solution -= x;
-		m.insert({ x, -1 });
+		m[x] = -1;
 	}
 }
 
+
+// REMAP 
+// std::vector<int64_t> remap(std::vector<int64_t> v) {
+// 	std::vector<int64_t> remap = v;
+// 	sort(remap.begin(), remap.end());
+// 	std::vector<int64_t>::iterator tmp = std::unique(remap.begin(), remap.end());
+// 	int64_t new_size = std::distance(remap.begin(), tmp);
+// 	remap.resize(new_size);
+
+// 	for (int i = 0; i < v.size(); i++) {
+// 		for (int j = 0; j < remap.size(); j++) {
+// 			if (remap[j] == v[i]) v[i] = j;
+// 		}
+// 	}
+// 	return remap;
+// }
+
 int main() {
+
+	// input
 	int64_t n, q;
 	std::cin >> n >> q;
 
@@ -114,7 +157,8 @@ int main() {
 	std::vector<std::pair<int64_t, int64_t>> sol;
 	sol.reserve(q);
 
-	std::unordered_map<int64_t, int64_t> ks;
+	//std::map<int64_t, int64_t> ks;
+	std::vector<int64_t> ks(n + 1, INT64_MAX);
 	int64_t c_l = -1;
 	int64_t c_r = -1;
 	for (int j = 0; j < buckets.size(); j++) {
@@ -138,7 +182,7 @@ int main() {
 				c_r--;
 			}
 
-			sol.push_back(std::make_pair(solution,bucket[i].second));
+			sol.push_back(std::make_pair(solution, bucket[i].second));
 		}
 	}
 

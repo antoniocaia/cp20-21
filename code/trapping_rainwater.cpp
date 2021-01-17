@@ -2,10 +2,10 @@
 #include <vector>
 
 /*
-Time complexity: 
-	- worst case (a vector with descending values) the complexity is O(N^2).
-	- best case scenario is O(N).
-Space complexity: O(1)
+time complexity: 
+	- worst case (a vector with descending values) the complexity is O(n^2).
+	- best case scenario is O(n).
+space complexity: O(1)
 
 This solution is based on the fact that you can divide the input vector the walls in segments, 
 where each segment has its right-most and left-most walls higher then the walls inside the segment.

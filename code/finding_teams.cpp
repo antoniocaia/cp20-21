@@ -4,10 +4,10 @@
 #include <unordered_set>
 
 /*
-Time complexity: O(N log N)
-Space complexity: O(N)
+time complexity: O(n log n)
+space complexity: O(n)
 
-Sorting the input triplets using the "strength" field takes O(N log N) time, 
+Sorting the input triplets using the "strength" field takes O(n log n) time, 
 then we pick each team starting from the couple with greater strength.
 After each pick, we keep track of the people already in a team using an unordered_set
 (worst case scanario using "find()" takes linear time).

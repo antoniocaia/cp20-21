@@ -5,8 +5,12 @@
 #include <algorithm>
 
 /*
-Time complexity: O(N log N)
-Space complexity: O(N)
+time complexity: O(n log n)
+space complexity: O(n)
+
+We keep track of which spells to double the power using two maps.
+Of course the number of spell that we can double is tied to the number of 
+ligthing spells.
 */
 
 std::map<long, long> to_dup;					// to_dup keeps track of the spells we want to duplicate the power of (using lighting spells) 

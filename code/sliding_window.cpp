@@ -2,10 +2,10 @@
 #include <vector>
 
 /*
-Time complexity: 
-	- worst case O(N^2)
-	- best case O(N).
-Space complexity: O(1)
+time complexity: 
+	- worst case O(n^2)
+	- best case O(n).
+space complexity: O(1)
 
 This solution is a small optimization of the quadratic solution 
 that scan each sub-arrays to find the bigger value inside them.

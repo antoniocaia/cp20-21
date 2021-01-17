@@ -2,12 +2,15 @@
 #include <vector>
 
 /*
-Time complexity: O(N)
-Space complexity: O(1)
+time complexity: O(n)
+space complexity: O(1)
 
-While iterating the input array, we refer to all the element previusly scanned as prefix.
-If the sum of the prefix is negative, the prefix must be excluded, because simply doing that we can optain a sub array whose sum is bigger. 
-Everytime the sum of the elements became negative, we start to count from the next element, without having to back-track.
+While iterating the input array, we refer to all the element 
+previusly scanned as prefix.
+If the sum of the prefix is negative, the prefix must be excluded, 
+because simply doing that we can optain a sub array whose sum is bigger. 
+Everytime the sum of the elements became negative, we start 
+to count from the next element, without having to back-track.
 */
 
 void kadane(std::vector<int> l)

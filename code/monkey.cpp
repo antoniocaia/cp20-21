@@ -2,8 +2,8 @@
 #include <vector>
 
 /*
-Time complexity: O(N)
-Space complexity: O(N) to store the gaps value.
+Time complexity: O(n)
+Space complexity: O(n) to store the gaps value.
 
 We find the bigger gap k between two pole 
 because a smaller value would be useless, and simulate all N jumps. 
