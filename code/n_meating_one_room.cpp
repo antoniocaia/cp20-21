@@ -9,8 +9,9 @@ space complexity: O(n)
 
 We store each meeting as a tuple <start_time, end_time>.
 Then we sort the meeting by increasing end_ime.
-Then we start "greadly" picking meeting starting from the first one, and we pick only the meeting
-with a start_time greater then the_end time of the last meeting picked.
+Then we start "greadly" picking meeting starting from the first one,
+and we pick only the meeting with a start_time greater then 
+the_end time of the last meeting picked.
 */
 
 bool sort_second(std::tuple<int64_t, int64_t> a, std::tuple<int64_t, int64_t> b) {
