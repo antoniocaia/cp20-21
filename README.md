@@ -18,7 +18,7 @@
 | 30/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) |
 | 02/12/2020 | [Longest increasing sub](code/longest_increasing_sub.cpp) <br /> [Longest bitonic sub](code/longest_bitonic_sub.cpp) | 
 | 07/12/2020 | [Edit distance](code/edit_distance.cpp) <br /> [Vertex cover](code/vertex_cover.cpp) <br /> [Longest palindromic sub](code/longest_palindromic_sub.cpp) |
-| 09/12/2020 | [N meetings in one room](code/n_meating_one_room.cpp) <br /> [Magic numbers]() NO <br /> [Wilbur and array]() NO <br /> [Alternative thinking]() NO |
+| 09/12/2020 | [N meetings in one room](code/n_meating_one_room.cpp) <br /> [Magic numbers](code/magic_number.cpp) <br /> [Wilbur and array]() NO <br /> [Alternative thinking]() NO |
 
 <br />
 
@@ -36,7 +36,6 @@ Missing es:
 - powerfull array (TLE test 6, need opt)
 - tree and queries (TBD)
 
-- Magic numbers
 - Wilbur and array
 - Alternative thinking
 
