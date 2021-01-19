@@ -3,10 +3,17 @@
 #include <algorithm>
 
 /*
-Time complexity: O
-Space complexity: O
+time complexity: O(n log n)
+space complexity: O(n)
 
-
+For each element in the array we count how many times
+they are included in a query using prefix sum. 
+For each query left-edge we increase a corresponding counter, 
+and for each query rigth-edge we decrease a corresponding counter.
+Computing the prefix sum of this frequencies let us know the most 
+"popular" positions of the array. We order the array so that 
+the bigger values match the popular positions. To do this
+we simply order the arrays with a time complexity of O( n log n)
 */
 
 int main()

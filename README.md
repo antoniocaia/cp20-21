@@ -28,18 +28,9 @@
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)  
 [Update the array](code/update_array.cpp) (solution without FT)  
 
-<!-- TO DO
 
-Missing es:
-- frogs and mosq (Wrong Answer test 5)
-- pashmark (I don't get it)
-- powerfull array (TLE test 6, need opt)
-- tree and queries (TBD)
+<!-- 
+nested_segment_st.cpp -
 
-Write all the descriptions.
-
-Check code quality
-Do LIS with speedup
-DO LPS without LCS
-
--->
+edit_distance.cpp +
+ -->

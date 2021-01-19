@@ -2,10 +2,10 @@
 #include <vector>
 
 /*
+time complexity: O(n log n)
+space complexity: O(n)
 
-
-Time complexity: O(N)
-Space complexity: O(N)
+We implement and use a Fenwick Tree.
 */
 
 struct fenwick_tree {

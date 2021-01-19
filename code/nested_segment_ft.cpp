@@ -3,10 +3,14 @@
 #include <algorithm>
 
 /*
-Time complexity: O(N log N)
-Space complexity: O(N)
+time complexity: O(n log n)
+space complexity: O(n)
 
-
+We map the value in a range 0..2n-1.
+Using a Fenwick tree we keep track and increase the rigth index, 
+allowing us to count how many segment ends before each one.
+Using a sweep line approach we evaluate the number of nested segment
+and reduce the rigth index (all the following nested segment will ignore it) 
 */
 
 // Store the left and right index of a segment
@@ -111,7 +115,7 @@ int main() {
 		if (sup[i].t == 0) {
 			int64_t ind = sup[i].ind;
 			ft.add(input[ind].r, -1);
-			// segment in this case is used to store the solution with the rigth index, it's not actually a segment
+			//!!! segment in this case is used to store the solution with the rigth index, it's not actually a segment
 			res.push_back(segment(ind, ft.sum(input[ind].r)));
 		}
 	}
