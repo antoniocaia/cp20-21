@@ -16,7 +16,7 @@
 | 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <br /> |
 | 23/11/2020 | [Minimum number of jumps](code/min_num_jumps.cpp) | 
 | 30/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) |
-| 02/12/2020 | [Longest increasing sub](code/longest_increasing_sub.cpp) <br /> [Longest bitonic sub](code/longest_bitonic_sub.cpp) | 
+| 02/12/2020 | [Longest increasing sub](code/longest_increasing_sub_log.cpp) <br /> [Longest bitonic sub](code/longest_bitonic_sub.cpp) | 
 | 07/12/2020 | [Edit distance](code/edit_distance.cpp) <br /> [Vertex cover](code/vertex_cover.cpp) <br /> [Longest palindromic sub](code/longest_palindromic_sub.cpp) |
 | 09/12/2020 | [N meetings in one room](code/n_meating_one_room.cpp) <br /> [Magic numbers](code/magic_number.cpp) <br /> [Wilbur and array](code/wilbur_and_array.cpp) <br /> [Alternative thinking](code/alternative_thinking.cpp) |
 
@@ -27,6 +27,7 @@
 [The Monkey and the Oiled Bamboo](code/monkeybin.cpp) (binary search)  
 [The Monkey and the Oiled Bamboo](code/monkeyexp.cpp) (exponential-binary search)  
 [Update the array](code/update_array.cpp) (solution without FT)  
+[Longest increasing sub](code/longest_increasing_sub_log.cpp) (n^2 solution)
 
 
 <!-- 
