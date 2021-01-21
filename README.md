@@ -29,6 +29,7 @@
 [Update the array](code/update_array.cpp) (solution without FT)  
 [Longest increasing sub](code/longest_increasing_sub_log.cpp) (n^2 solution)  
 [Longest bitonic sub](code/longest_bitonic_sub.cpp) (n^2 solution)  
+[Minimum number of jumps](code/min_num_j.cpp) (n^2 solution)
 
 
 <!-- 

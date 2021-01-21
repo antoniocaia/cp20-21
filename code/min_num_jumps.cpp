@@ -7,7 +7,9 @@ space complexity: O(1)
 While moving forward we store the best candidate for the next jump, 
 ie the position that let us move further. Moving forward we need to reduce both 
 the current avaiable jumps and the jumps avaiable after we decide where to 
-move.
+move. 
+This solution works because it's pointless to jump in a position 
+that offere us a reach that isn't the biggest one.
 */
 
 int minJumps(int arr[], int n) {
