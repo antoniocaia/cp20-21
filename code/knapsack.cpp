@@ -2,13 +2,27 @@
 #include <vector>
 #include <algorithm>
 
-bool comp(std::pair<int64_t, int64_t> a, std::pair<int64_t, int64_t> b) {
-	if (a.first < b.first)
-		return true;
-	else if (a.first == b.first)
-		if (a.second > b.second) return true;
+/*
+time complexity: O(n * c)
+space complexity: O(n * c)
 
-	return false;
+First, we sort the items by increasing size.
+Then, we build a matrix [n][c + 1].
+Each time we try to put a new item in the subset
+we keep track of the result for all the possible 
+capacity in the range 0..c. 
+When the weight of the new value is bigger than 
+the avaiable capacity we simply copy the result of
+the previous subset.  
+When the weight of the new value is smaller or equals
+than the avaiable capacity we select the max between:
+- the result of the prevous subset 
+- the value of the new items plus the result from the 
+prevous sub set for the remaining space given the new item
+*/
+
+bool comp(std::pair<int64_t, int64_t> a, std::pair<int64_t, int64_t> b) {
+	return a.first < b.first ? true : (a.first == b.first ? true : false);
 }
 
 int main()
@@ -28,10 +42,12 @@ int main()
 
 	// Init
 	int64_t m[n][c + 1];
+
 	// weigth 0
 	for (int i = 0; i < n; i++) {
 		m[i][0] = 0;
 	}
+
 	// first row
 	for (int j = 0; j < c + 1; j++) {
 		if (j < in[0].first) m[0][j] = 0;
