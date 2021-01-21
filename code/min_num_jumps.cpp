@@ -2,25 +2,30 @@
 #include <vector>
 #include <limits>
 
-int minJumps(int arr[], int n) {
-	int64_t long_max = std::numeric_limits<int64_t>::max();
-	std::vector<int64_t> jumps(n, long_max);
-	jumps[0] = 0;
+/*
+time complexity: O(n)
+space complexity: O(1)
 
-	for (int i = 0; i < n - 1; i++) {
-		if (jumps[i] != long_max) {
-			int64_t dist = arr[i];
-			for (int j = i + 1; j < i + 1 + dist; j++) {
-				if (j < n)
-					jumps[j] = std::min(jumps[j], jumps[i] + 1);
-			}
+
+*/
+
+int64_t minJumps(int arr[], int n) {
+	int64_t avaiable_jumps = arr[0];
+	int64_t total_jumps = 1;
+	int64_t max_jumps = 0;
+
+	for (int64_t i = 1; i < n; i++) {
+		if (n - avaiable_jumps - i<= 0) return total_jumps; // Solution
+		avaiable_jumps--;
+		max_jumps--;
+		if (avaiable_jumps < arr[i])
+			max_jumps = max_jumps < arr[i] ? arr[i] : max_jumps;
+		if (avaiable_jumps == 0) {
+			avaiable_jumps = max_jumps;
+			max_jumps = 0;
+			total_jumps++;
 		}
+		if (avaiable_jumps <= 0) return -1;
 	}
-
-	return jumps[n - 1];
-}
-
-int main() {
-	int a[] = { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 };
-	std::cout << minJumps(a, 11);
+	return total_jumps;
 }
