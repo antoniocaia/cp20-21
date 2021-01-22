@@ -1,16 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cmath>
-#include <cstring>
 #include <limits>
 
 /*
-	- Circular
-	- Lazy
-	- Min
-	- Add
+Prop: Circular, Lazy
+Op: Min,  Add
 */
+
+#define LEFT(i)     (2 * i + 1)
+#define RIGHT(i)    (2 * i + 2)
 
 struct segment_tree {
 	std::vector<int64_t> t;
@@ -18,38 +17,35 @@ struct segment_tree {
 	int64_t size;
 	int64_t max = std::numeric_limits<int64_t>::max();
 
-	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1)))) { lazy = t; size = n; } // should be (pow(2, ceil(log2(n * 2 - 1) - 1) but there is a bug with array size 1
+	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1)))) { lazy = t; size = n; }
 
-	// Add v and update tree
 	void _add(int64_t lq, int64_t rq, int64_t v, int64_t ln, int64_t rn, int64_t i) {
-
 		if (lazy[i] != 0) {
-			t[i] += lazy[i]; 
+			t[i] += lazy[i];
 
 			if (rn != ln) {
-				lazy[(i + 1) * 2 - 1] += lazy[i];
-				lazy[(i + 1) * 2] += lazy[i];
+				lazy[LEFT(i)] += lazy[i];
+				lazy[RIGHT(i)] += lazy[i];
 			}
 			lazy[i] = 0;
 		}
 
-		if (lq > rn || rq < ln) return;				// query range and vector segment don't overlap
+		if (lq > rn || rq < ln) return;
+		if (ln >= lq && rn <= rq) {
+			t[i] += v;
 
-		if (ln >= lq && rn <= rq) {					// query range and vector segment perfectly overlap
-			t[i] += v;								
-
-			if (rn != ln) { 
-				lazy[(i + 1) * 2 - 1] += v;
-				lazy[(i + 1) * 2] += v;
+			if (rn != ln) {
+				lazy[LEFT(i)] += v;
+				lazy[RIGHT(i)] += v;
 			}
 			return;
 		}
 
-		int64_t mid = (ln + rn) / 2; 				// query range and vector segment partially overlap
-		_add(lq, rq, v, ln, mid, (i + 1) * 2 - 1);
-		_add(lq, rq, v, mid + 1, rn, (i + 1) * 2);
+		int64_t mid = (ln + rn) / 2;
+		_add(lq, rq, v, ln, mid, LEFT(i));
+		_add(lq, rq, v, mid + 1, rn, RIGHT(i));
 
-		t[i] = std::min(t[(i + 1) * 2 - 1], t[(i + 1) * 2]);
+		t[i] = std::min(t[LEFT(i)], t[RIGHT(i)]);
 	}
 
 	void add(int64_t lq, int64_t rq, int64_t v) {
@@ -67,14 +63,12 @@ struct segment_tree {
 
 	// Min value in a sub-array
 	int64_t _min(int64_t lq, int64_t rq, int64_t ln, int64_t rn, int64_t i) {
-		if(lazy[i] != 0) {
+		if (lazy[i] != 0) {
 			t[i] += lazy[i];
-
-			if(ln != rn) {
-				lazy[(i + 1) * 2 - 1] += lazy[i];
-				lazy[(i + 1) * 2] += lazy[i];
+			if (ln != rn) {
+				lazy[LEFT(i)] += lazy[i];
+				lazy[RIGHT(i)] += lazy[i];
 			}
-
 			lazy[i] = 0;
 		}
 

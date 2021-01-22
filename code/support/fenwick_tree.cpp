@@ -15,20 +15,12 @@ struct fenwick_tree {
 		}
 		return sum;
 	}
-
+	
 	void add(int64_t i, int64_t v) {
 		i++;
 		while (i < t.size()) {
 			t[i] += v;
 			i += i & -i;
 		}
-	}
-
-	void print() {
-		std::cout << "[ ";
-		for (int i = 0; i < t.size(); i++) {
-			std::cout << t[i] << " ";
-		}
-		std::cout << "]\n";
 	}
 };
