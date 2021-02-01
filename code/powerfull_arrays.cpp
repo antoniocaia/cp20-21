@@ -24,36 +24,13 @@ bool l_sort(std::pair<std::pair<lli, lli>, lli> a, std::pair<std::pair<lli, lli>
 
 void add(std::vector<lli>& m, lli x) {
 	solution += x * (2 * m[x] + 1);
-
-	//solution -= x * m[x] * m[x];
 	m[x] += 1;
-	//solution += x * m[x] * m[x];
 }
 
 void remove(std::vector<lli>& m, lli x) {
 	solution -= x * (2 * m[x] - 1);
-
-	//solution -= x * m[x] * m[x];
 	m[x] -= 1;
-	//solution += x * m[x] * m[x];
 }
-
-
-// REMAP 
-// std::vector<lli> remap(std::vector<lli> v) {
-// 	std::vector<lli> remap = v;
-// 	sort(remap.begin(), remap.end());
-// 	std::vector<lli>::iterator tmp = std::unique(remap.begin(), remap.end());
-// 	lli new_size = std::distance(remap.begin(), tmp);
-// 	remap.resize(new_size);
-
-// 	for (int i = 0; i < v.size(); i++) {
-// 		for (int j = 0; j < remap.size(); j++) {
-// 			if (remap[j] == v[i]) v[i] = j;
-// 		}
-// 	}
-// 	return remap;
-// }
 
 int main() {
 
@@ -111,10 +88,8 @@ int main() {
 			remove(ks, in[c_r]);
 			c_r--;
 		}
-
 		sol[queries[j].second] = solution;
 	}
-
 
 	for (int i = 0; i < q; i++) {
 		printf("%lld\n", sol[i]);
