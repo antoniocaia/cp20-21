@@ -12,7 +12,7 @@
 | 26/10/2020 | [Nested segments ST](code/nested_segment_st.cpp) |
 | 02/11/2020 | [Circular RMQ](code/circular_rmq.cpp) |
 | 09/11/2020 | [Triplets](code/triplets.cpp) <br /> [Smaller Values](code/smaller_values.cpp) |
-| 16/11/2020 | [Powerfull array]() TLE test 6 <br /> [Tree and Queries]() Not Done |
+| 16/11/2020 | [Powerfull array](code/powerfull_arrays.cpp) <br /> [Tree and Queries]() Not Done |
 | 18/11/2020 | [Longest common sub](code/longest_common_sub.cpp) <br /> |
 | 23/11/2020 | [Minimum number of jumps](code/min_num_jumps.cpp) | 
 | 30/11/2020 | [Subset Sum](code/subset_sum.cpp) <br /> [0-1 knapsack](code/knapsack.cpp) |
