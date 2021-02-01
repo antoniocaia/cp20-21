@@ -3,9 +3,19 @@
 #include <cmath>
 
 /*
-	Sum of elements in a sub-array [i, j]
-	Add v to all elements in a sub-array [i, j]
+time complexity: O((n + m) n^1/2 log n)
+space complexity: O(n)
+
+We store for each node in the segment tree a vector vt. 
+For each position j in vt we store the number of elements 
+in the input array smaller than j.
+
+When processing a query, se simply retrive from the vectors
+vt the number of elements smaller than x.
 */
+
+#define LEFT(i)     (2 * i + 1)
+#define RIGHT(i)    (2 * i + 2)
 
 struct segment_tree {
 	std::vector<std::vector<int64_t>> t;
@@ -13,74 +23,51 @@ struct segment_tree {
 
 	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1))) - 1) {
 		size = n;
-		for (int i = 0; i < t.size(); i++) {
-			t[i].reserve(n);
-			for (int j = 0; j < n; j++) {
-				t[i].push_back(0);
-			}
-		}
+		for (int i = 0; i < t.size(); i++) t[i] = std::vector<int64_t>(n);
 	}
 
-	void _add(int64_t lq, int64_t rq, int64_t v, int64_t ln, int64_t rn, int64_t i) {
-		if (lq > rn || rq < ln) return;				// query range and vector segment don't overlap
-
-		if (rn == ln) { 							// query range and vector segment perfectly overlap
-			for (int j = 0; j < size; j++) {
-				if (v <= j)
-					t[i][j] = 1;
-			}
+	void _add(int64_t q, int64_t x, int64_t ln, int64_t rn, int64_t i) {
+		if (q > rn || q < ln) return;
+		if (rn == ln) {
+			for (int j = x; j < size; j++)
+				t[i][j] = 1;
 			return;
 		}
 
-		for (int j = 0; j < size; j++) {
-			if (v <= j)
+		for (int j = x; j < size; j++)
 				t[i][j] += 1;
-		} 									// query range and vector segment partially overlap
+
 		int64_t mid = (ln + rn) / 2;
-		_add(lq, rq, v, ln, mid, (i + 1) * 2 - 1);
-		_add(lq, rq, v, mid + 1, rn, (i + 1) * 2);
+		_add(q, x, ln, mid, LEFT(i));
+		_add(q, x, mid + 1, rn, RIGHT(i));
 	}
+	void add(int64_t q, int64_t x) { _add(q, x, 0, size - 1, 0); }
 
-	void add(int64_t lq, int64_t rq, int64_t v) {
-		_add(lq, rq, v, 0, size - 1, 0);
+	int64_t _smaller(int64_t lq, int64_t rq, int64_t ln, int64_t rn, int64_t i, int64_t x) {
+		if (lq > rn || rq < ln) return 0;
+		if (lq == ln && rq == rn) return t[i][x];
+
+		int64_t mid = (ln + rn) / 2;
+		return _smaller(lq, std::min(mid, rq), ln, mid, LEFT(i), x) + _smaller(std::max(mid + 1, lq), rq, mid + 1, rn, RIGHT(i), x);
 	}
-
-	void add(int64_t q, int64_t v) {
-		_add(q, q, v, 0, size - 1, 0);
-	}
-
-
-	int64_t _sum(int64_t lq, int64_t rq, int64_t ln, int64_t rn, int64_t i, int64_t j) {
-		if (lq > rn || rq < ln) return 0;  			// query range and vector segment don't overlap
-		if (lq == ln && rq == rn) return t[i][j]; 		// query range and vector segment perfectly overlap
-
-		int64_t mid = (ln + rn) / 2; 				// query range and vector segment partially overlap
-		return _sum(lq, std::min(mid, rq), ln, mid, (i + 1) * 2 - 1, j) + _sum(std::max(mid + 1, lq), rq, mid + 1, rn, (i + 1) * 2, j);
-	}
-
-	int64_t sum(int64_t l, int64_t r, int64_t j) {
-		return _sum(l, r, 0, size - 1, 0, j);
-	}
+	int64_t smaller(int64_t l, int64_t r, int64_t x) { return _smaller(l, r, 0, size - 1, 0, x); }
 };
 
 
 int main() {
 	int n, m;
 	std::cin >> n >> m;
-	std::vector<int64_t> in;
-	in.reserve(n);
 	segment_tree t = segment_tree(n);
 
 	for (int i = 0; i < n; i++) {
 		int64_t x;
 		std::cin >> x;
-		in.push_back(x);
 		t.add(i, x);
 	}
 
 	for (int i = 0; i < m; i++) {
 		int64_t l, r, x;
 		std::cin >> l >> r >> x;
-		std::cout << t.sum(l, r, x) << "\n\n\n";
+		std::cout << t.smaller(l, r, x) << "\n";
 	}
 }
