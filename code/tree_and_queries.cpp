@@ -4,20 +4,6 @@
 
 using li = long int;
 
-struct node {
-	li color;
-	li parent;
-	std::vector<li> child;
-	std::vector<li> color_fr;
-
-	// REMAP COLORS
-	node(li c, li p, li n) : color_fr(n) {
-		color = c;
-		parent = p;
-		child.reserve(n);
-	}
-};
-
 struct query {
 	li root;
 	li k;
@@ -30,38 +16,52 @@ struct query {
 	}
 };
 
-// li solution = 0;
+li num_color;
 
-// bool sort_q(query qa, query qb) {
-// 	if (qa.root != qb.root)
-// 		return qa.root > qb.root;
+struct node {
+	li color;
+	li parent;
+	std::vector<li> child;
+	//std::vector<li> color_fr;
 
-// 	return qa.k < qb.k;
-// }
+	std::vector<std::pair<li, li>> node_qs;
 
-// void add(li color, li k, std::vector<li>& f) {
-// 	f[color]++;
-// 	if (f[color] == k) solution++;
-// }
+	node(li c, li p, li n, li cn) {
+		color = c;
+		parent = p;
+		//node_qs.reserve();
+		//child.reserve(n);
+	}
+};
 
-// void remove(li color, li k, std::vector<li>& f) {
-// 	f[color]--;
-// 	if (f[color] + 1 == k) solution--;
-// }
+std::vector<li> visit(li ind, std::vector<node>& ns, std::vector<std::pair<li, li>>& s) {
+	std::vector<li> color_frq(num_color);
 
-std::vector<li> visit(li ind, std::vector<node>& ns) {
+	// Update the frquencies
 	for (int i = 0; i < ns[ind].child.size(); i++) {
-		std::vector<li> tmp = visit(ns[ind].child[i], ns);
+		std::vector<li> tmp = visit(ns[ind].child[i], ns, s);
 		//merge sol
 		for (int j = 0; j < tmp.size(); j++) {
-			ns[ind].color_fr[j] += tmp[j];
+			color_frq[j] += tmp[j];
 		}
 	}
+	color_frq[ns[ind].color]++;
 
-	ns[ind].color_fr[ns[ind].color]++;
-	return ns[ind].color_fr;
+	//Solve query
+	for (int i = 0; i < ns[ind].node_qs.size(); i++) {
+		li k = ns[ind].node_qs[i].first;
+		li ti = ns[ind].node_qs[i].second;
+
+		li tot = 0;
+		for (int j = 0; j < color_frq.size(); j++) {
+			if (color_frq[j] >= k) tot++;
+		}
+		s.push_back(std::make_pair(tot, ti));
+	}
+	return color_frq;
 }
 
+bool sort_sol(std::pair<li, li> a, std::pair<li, li> b) { return a.second < b.second; }
 
 int main() {
 	std::ios_base::sync_with_stdio(false);
@@ -85,12 +85,13 @@ int main() {
 		}
 		mem_col[i] = colors[color];
 	}
+	num_color = color_n;
 
 	std::vector<node> nodes;
 	nodes.reserve(n);
 
 	for (int i = 0; i < n; i++) {
-		nodes.push_back(node(mem_col[i], -1, color_n));
+		nodes.push_back(node(mem_col[i], -1, n, color_n));
 	}
 
 	for (int i = 0; i < n - 1; i++) {
@@ -111,42 +112,20 @@ int main() {
 		nodes[c].parent = p;
 	}
 
-	// std::vector<query> queries;
-	// queries.reserve(q);
-
-	// for (int i = 0; i < q; i++) {
-	// 	li root;
-	// 	li k;
-	// 	scanf("%ld", &root);
-	// 	scanf("%ld", &k);
-	// 	root -= 1;
-	// 	queries.push_back(query(root, k, i));
-	// }
-
-	// MO
-	// std::sort(queries.begin(), queries.end(), sort_q);
-	// std::vector<li>freq(100001);
-
-	// li current = 0;
-	// for(int i = 0; i < q; i ++) {
-	// 	query q = queries[i];
-
-	// }
-
-	visit(0, nodes);
-
 	for (int i = 0; i < q; i++) {
 		li root;
 		li k;
 		scanf("%ld", &root);
 		scanf("%ld", &k);
 		root -= 1;
+		nodes[root].node_qs.push_back(std::make_pair(k, i));
+	}
 
-		li sol = 0;
-		std::vector<li> tmp = nodes[root].color_fr;
-		for (int i = 0; i < tmp.size(); i++)
-			if (tmp[i] >= k) sol++;
+	std::vector<std::pair<li, li>> solutions;
+	visit(0, nodes, solutions);
 
-		printf("%ld\n", sol);
+	std::sort(solutions.begin(), solutions.end(), sort_sol);
+	for (int i = 0; i < solutions.size(); i++) {
+		printf("%ld\n", solutions[i].first);
 	}
 }
