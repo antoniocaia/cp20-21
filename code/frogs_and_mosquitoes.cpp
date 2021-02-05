@@ -6,6 +6,22 @@
 
 using li = long int;
 
+/*
+time complexity: Ο(m log m + (m + n) log n)
+space complexity: θ(n + m)
+
+To process each query (mosquito) we have to check which frog between all the frogs
+that can eat the mosquito is the left-most one. We store the frogs without overlap
+between their ranges, so we can perform a search based on the position of the frog
+and the mosquitoes without checking if a frog is actually the left-most one. This 
+is true because for each case of overlapping range the right frog "is moved" based 
+on the max range of left frog. To store the frogs we use a tree so that the search 
+has a cost of n log n. 
+We use a tree to store the mosquitoes that are not immediately eaten.
+When a frog eat a mosquitoes, we update his range and all the frogs affected; then
+the frog can check if it can eat another mosquitoes, and so on.
+*/
+
 // Frog
 struct frog {
 	li id;
@@ -47,7 +63,6 @@ void update_frog_tree(std::multimap<li, li>::iterator i, std::multimap<li, li>& 
 			fst.erase(ii);
 			fst.insert({ crn_f.pos + crn_f.tongue + 1, tmp_i });
 			return;
-			//ii = std::next(i);
 		}
 		else {
 			return;
