@@ -4,37 +4,17 @@
 #include <map>
 #include <cmath>
 
-struct mosq {
-	int64_t x;
-	int64_t s;
-
-	int64_t l; // left index for the bst
-	int64_t r; // rigth index for the bst
-
-	mosq(int64_t pos, int64_t size) {
-		x = pos;
-		s = size;
-		l = 0;
-		r = 0;
-	}
-
-	mosq() {
-		x = -1;
-		s = -1;
-		l = 0;
-		r = 0;
-	}
-};
+using li = long int;
 
 // Frog
 struct frog {
-	int64_t id;
-	int64_t pos;
-	int64_t tongue;
-	int64_t mos_count;
+	li id;
+	li pos;
+	li tongue;
+	li mos_count;
 
-	int64_t l; // left index for the bst
-	int64_t r; // rigth index for the bst
+	li l; // left index for the bst
+	li r; // rigth index for the bst
 
 	frog() {
 		id = -1;
@@ -46,7 +26,7 @@ struct frog {
 		r = 0;
 	}
 
-	frog(int64_t i, int64_t x, int64_t t) {
+	frog(li i, li x, li t) {
 		id = i;
 		pos = x;
 		tongue = t;
@@ -56,42 +36,40 @@ struct frog {
 		r = 0;
 	}
 
-	void update_frog(int64_t s) {
+	void update_frog(li s) {
 		mos_count++;
 		tongue += s;
 	}
 	// Check if frog can eat any of the stored mosq. The mosq are ordered in increasing position.
-	void feast(std::multimap<int64_t, int64_t>& ms) {
+	void feast(std::multimap<li, li>& ms) {
 		auto to_eat = ms.lower_bound(pos);
 		if (to_eat != ms.end() && to_eat->first >= pos && to_eat->first <= pos + tongue) {
 			update_frog(to_eat->second);
 			ms.erase(to_eat);
 			return feast(ms);
-
 		}
 	}
 };
 
-bool sort_m_pos(mosq a, mosq b) { return a.x < b.x; }
 bool frog_by_id(frog a, frog b) { return a.id < b.id; }
 
-void insert_frog(std::vector<frog>& frogs, frog& f, int64_t v_i) {
-	int64_t crr = 1;
-	int64_t prc = -1;
-
+void insert_frog(std::vector<frog>& frogs, li id, li pos, li tongue, li v_i) {
+	li crr = 1;
+	li prc = -1;
+ 
 	while (frogs[crr].id != -1) {
 		prc = crr;
-		if (f.pos < frogs[crr].pos)
+		if (pos < frogs[crr].pos)
 			crr = frogs[crr].l;
 		else
 			crr = frogs[crr].r;
 	}
-	frogs[v_i].id = f.id;
-	frogs[v_i].pos = f.pos;
-	frogs[v_i].tongue = f.tongue;
-
+	frogs[v_i].id = id;
+	frogs[v_i].pos = pos;
+	frogs[v_i].tongue = tongue;
+ 
 	if (prc != -1) {
-		if (frogs[prc].pos < f.pos)
+		if (frogs[prc].pos < pos)
 			frogs[prc].r = v_i;
 		else
 			frogs[prc].l = v_i;
@@ -99,7 +77,7 @@ void insert_frog(std::vector<frog>& frogs, frog& f, int64_t v_i) {
 }
 
 // OK!
-void find_frog(std::vector<frog>& frogs, int64_t i, int64_t m_pos, int64_t& f_i) {
+void find_frog(std::vector<frog>& frogs, li i, li m_pos, li& f_i) {
 	// No more frogs to check, end
 	if (frogs[i].id == -1) return;
 
@@ -121,62 +99,56 @@ void find_frog(std::vector<frog>& frogs, int64_t i, int64_t m_pos, int64_t& f_i)
 	}
 }
 
-// void find_frog(std::vector<frog>& frogs, int64_t i, int64_t m_pos, int64_t& f_i) {
-// 	// No more frogs to check, end
-// 	//if (frogs[i].id == -1) return;
-// 	for (int i = 0; i < frogs.size(); i++) {
-// 		if((frogs[i].pos <= m_pos && frogs[i].pos + frogs[i].tongue >= m_pos) && (f_i == -1 || frogs[i].pos < frogs[f_i].pos)) {
-// 			f_i = i;
-// 		}
+// void find_frog2(std::multimap<my_type, frog>& frog_tree, my_type m_pos, my_type m_s) {
+// 	auto gonna_eat = frog_tree.lower_bound(m_pos);
+// 	auto f = gonna_eat->second;
+// 	if (gonna_eat != frog_tree.end() && m_pos <= gonna_eat->second.pos + gonna_eat->second.tongue) {
+// 		gonna_eat->second.update_frog(m_s);
 // 	}
 // }
 
 // Main
 int main()
 {
-	int64_t f_n, m_n;
-	std::cin >> f_n >> m_n;
+	std::ios_base::sync_with_stdio(false);
+	li f_n, m_n;
+	scanf("%ld", &f_n);
+	scanf("%ld", &m_n);
 
 	std::vector<frog> frogs(f_n + 1);
-	int64_t free_pos = 1;
+	li free_pos = 1;
 
-	for (int64_t i = 0; i < f_n; i++) {
-		int64_t x, t;
-		std::cin >> x >> t;
-
-		struct frog f = { i, x, t };
-		insert_frog(frogs, f, free_pos++);
+	for (li i = 0; i < f_n; i++) {
+		li x, t;
+		scanf("%ld", &x);
+		scanf("%ld", &t);
+		
+		insert_frog(frogs, i, x, t, free_pos++);
 	}
 
-	//std::vector<mosq> mosqs(m_n + 1);
-	std::multimap<int64_t, int64_t> mosqs;
-	//int64_t free_m_pos = 1;
+	std::multimap<li, li> mosqs;
 
-	for (int64_t t = 0; t < m_n; t++) {
-		int64_t x, s;
-		std::cin >> x >> s;
+	for (li t = 0; t < m_n; t++) {
+		li x, s;
+		scanf("%ld", &x);
+		scanf("%ld", &s);
 
-		int64_t f_eat = -1;
+		li f_eat = -1;
 		find_frog(frogs, 1, x, f_eat);
 
 		if (f_eat != -1) {
-			// Frog f_eat can eat
 			frogs[f_eat].update_frog(s);
-			// Check for more mosq
 			frogs[f_eat].feast(mosqs);
 		}
 		else {
-			// not eaten, store the mosq
-			//mosqs.push_back(mosq(x, s));
-			//sort(mosqs.begin(), mosqs.end(), sort_m_pos);
 			mosqs.insert({ x, s });
 		}
 	}
 
 	sort(frogs.begin(), frogs.end(), [](frog a, frog b) { return a.id < b.id; });
 
-	for (int64_t i = 1; i < f_n + 1; i++) {
-		std::cout << frogs[i].mos_count << " " << frogs[i].tongue << "\n";
+	for (li i = 1; i < f_n + 1; i++) {
+		printf("%ld %ld\n", frogs[i].mos_count, frogs[i].tongue);
 	}
 
 	return 0;
