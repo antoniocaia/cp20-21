@@ -8,7 +8,7 @@ using li = long int;
 
 /*
 time complexity: Ο(m log m + (m + n) log n)
-space complexity: θ(n + m)
+space complexity: O(n + m)
 
 To process each query (mosquito) we have to check which frog between all the frogs
 that can eat the mosquito is the left-most one. We store the frogs without overlap
