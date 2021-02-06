@@ -8,7 +8,7 @@
 | 05/10/2020 | [Maximum path sum](code/max_path_sum.cpp) <br /> [Longest k-Good segment](code/longest_kgood.cpp) |
 | 12/10/2020 | [Ilya and Queries](code/ilya.cpp) <br /> [Number of ways](code/number_of_ways.cpp) <br /> [Little girl and maximum sum](code/little_girl.cpp) |
 | 19/10/2020 | [Update the array](code/update_array_ft.cpp) |
-| 21/10/2020 | [Nested segments FT](code/nested_segment_ft.cpp) <br /> [Pashmak and Parmida](code/pashmak_parmida.cpp) Not Done |
+| 21/10/2020 | [Nested segments FT](code/nested_segment_ft.cpp) <br /> [Pashmak and Parmida](code/pashmak_parmida.cpp) |
 | 26/10/2020 | [Nested segments ST](code/nested_segment_st.cpp) |
 | 02/11/2020 | [Circular RMQ](code/circular_rmq.cpp) |
 | 09/11/2020 | [Triplets](code/triplets.cpp) <br /> [Smaller Values](code/smaller_values.cpp) |
