@@ -12,7 +12,7 @@ struct segment_tree {
 	int64_t size;
 	int64_t max = std::numeric_limits<int64_t>::max();
 
-	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1)))) { lazy = t; size = n; } // should be (pow(2, ceil(log2(n * 2 - 1) - 1) but there is a bug with array size 1
+	segment_tree(size_t n) : t(pow(2, ceil(log2(n * 2 - 1)))) { lazy = t; size = n; } 
 
 	// Add v and update tree
 	void _add(int64_t lq, int64_t rq, int64_t v, int64_t ln, int64_t rn, int64_t i) {
